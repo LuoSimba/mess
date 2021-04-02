@@ -27,3 +27,14 @@ extern int list[20];
 // 比如以下声明与上一句冲突，就是错误的
 extern int list[18];
 
+
+// ===================
+// type = int [12]
+int score[12];
+
+// 数组指针
+//
+// type = int (*) [12]
+int (*pscore)[12] = &score;
+
+
