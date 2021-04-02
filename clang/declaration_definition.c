@@ -1,6 +1,7 @@
-
-// 注意区分定义(definition)和声明(declaration)
-//
+/*!
+ * Definition and declaration
+ *
+ */
 // 1. 声明只表明变量的类型，不会分配存储空间
 // 2. 定义为变量分配存储空间
 // 3. 只能定义一次，但是可以声明多次
