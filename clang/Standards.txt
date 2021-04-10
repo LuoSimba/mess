@@ -1,0 +1,20 @@
+
+K&R     1978年      贝尔实验室发布 C 语言。
+                    同年，《The C Programming Language》作为标准。
+                    简称《K&R》标准。
+                    但是，它并没有定义一个完整的 C 语言标准。
+
+C89     1983年      ANSI C 发布。
+        1989年      ANSI：American National Standards Institude
+                          美国国家标准协会
+
+C90     1990年      在 ANSI C 标准的基础上，作一些小改动，变成 ISO C
+
+C99     2000年      ISO 1999 标准
+                    特性：
+                    > 支持不定长数组
+                    > 变量声明不必放在语句块开头
+                    > for (int i) 
+
+C11     2011年
+
