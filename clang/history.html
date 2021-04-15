@@ -11,6 +11,8 @@ p { text-indent: 1em; }
 #AUTHOR { text-align:center; }
 #LeftMenu { background:white; position:fixed; left: -1px; top:10px; border:1px solid black; padding: 10px; }
 #LeftMenuContent { list-style:none; padding:0; }
+#LeftMenuContent > li { cursor:pointer; }
+#LeftMenuContent > li:hover { background:pink; }
 </style>
 <script type="text/javascript">
 function TEXT(str) { return document.createTextNode(str); }
@@ -25,35 +27,67 @@ function toggleMenu(btn) {
     }
 }
 
+var LeftMenuContent = null;
+var HL_item = null;
+
 window.onload = function () {
+    LeftMenuContent = document.getElementById("LeftMenuContent");
     var list = document.getElementsByTagName("h2");
-    var menuContent = document.getElementById("LeftMenuContent");
 
     for (var i = 0; i < list.length; i ++) {
         var hnode = list.item(i);
         var li = document.createElement('li');
-        var a  = document.createElement('a');
-        a.href = '#' + hnode.id;
-        a.appendChild(TEXT(hnode.innerText));
-        li.appendChild(a);
-        menuContent.appendChild(li);
+
+        li._obj = hnode;
+        li._val = hnode.offsetTop;
+        hnode._obj = li;
+        li.appendChild(TEXT(hnode.innerText));
+        li.onclick = function () {
+            var y = this._val - window.innerHeight / 3;
+            window.scrollTo(0, y);
+        };
+        LeftMenuContent.appendChild(li);
+    }
+};
+
+window.onscroll = function (event) {
+    var yMid = window.scrollY + window.innerHeight / 2;
+    var list = LeftMenuContent.children;
+
+    var tar = null;
+
+    for (var i = 0; i < list.length - 1; i ++)
+    {
+        if (list[i]._val <= yMid && yMid < list[i + 1]._val)
+        {
+            tar = list[i];
+            break;
+        }
+    }
+
+    if (tar === null && list[list.length -1]._val <= yMid)
+        tar = list[list.length -1];
+
+    if (HL_item != tar)
+    {
+        if (HL_item !== null)
+            HL_item.style.background = '';
+
+        HL_item = tar;
+        HL_item.style.background = 'red';
     }
 };
 </script>
 </head>
 
-<body id="TOP" link="#0000FF" vlink="#330088" alink="#FF0044">
+<body link="#0000FF" vlink="#330088" alink="#FF0044">
 
 本文对排版样式有改动，您可以<a href="https://www.bell-labs.com/usr/dmr/www/chist.html">访问原网页</a>
 
 
 <div id="LeftMenu">
     <button onclick="toggleMenu(this)">&lt;</button>
-
-    <ul id="LeftMenuContent">
-        <li><a href="#TOP">顶部</a></li>
-        <li><a href="#BOT">底部</a></li>
-    </ul>
+    <ul id="LeftMenuContent"></ul>
 </div>
 
 
@@ -69,7 +103,7 @@ window.onload = function () {
 </div>
 
 
-<h2 id="CH_ABSTRACT">ABSTRACT</h2>
+<h2>ABSTRACT</h2>
 
 <p>
 The C programming language was devised in the early 1970s as a system
@@ -82,7 +116,7 @@ one of the dominant languages of today.
 This paper studies its evolution.
 </p>
 
-<h2 id="CH_INTRO">Introduction</h2>
+<h2>Introduction</h2>
 
 <dl>
 <dt></dt><dt> </dt><dd>
@@ -128,7 +162,7 @@ is among the languages most commonly used throughout the computer industry.
 </p>
 
 
-<h2 id="CH_HIS_SETTING">History: the setting</h2>
+<h2>History: the setting</h2>
 <p>
 The late 1960s were a turbulent era
 for computer systems research at Bell Telephone Laboratories
@@ -243,7 +277,7 @@ or (according to an encyclopedia quotation in its manual),
 after a religion whose rituals involve the murmuring of magic formulas.
 </p>
 
-<h2 id="CH_ORIGIN">Origins: the languages</h2>
+<h2>Origins: the languages</h2>
 
 <p>
 BCPL was
@@ -513,7 +547,7 @@ other library functions that accessed or replaced individual
 characters in a string.
 </p>
 
-<h2 id="CH_MORE_HIS">More History</h2>
+<h2>More History</h2>
 
 <p>
 After the TMG version of B was working, Thompson rewrote B in itself
@@ -652,7 +686,7 @@ first version of the
 parser-generator [Johnson 79a].
 </p>
 
-<h2 id="CH_PROBLEM_B">The Problems of B</h2>
+<h2>The Problems of B</h2>
 
 <p>
 The machines on which we first used BCPL and then B were word-addressed,
@@ -717,7 +751,7 @@ to compete with assembly language.
 I called the slightly-extended language NB, for `new B.'
 </p>
 
-<h2 id="CH_EMB">Embryonic C</h2>
+<h2>Embryonic C</h2>
 
 <p>
 NB existed so briefly that no full description of
@@ -890,7 +924,7 @@ leaving open the question whether the name represented
 a progression through the alphabet or through the letters in BCPL.
 </p>
 
-<h2 id="CH_NEO">Neonatal C</h2>
+<h2>Neonatal C</h2>
 
 <p>
 Rapid changes continued after the language had been named,
@@ -1012,7 +1046,7 @@ and the imprecision of its description in early reference
 manuals.
 </p>
 
-<h2 id="CH_PORT">Portability</h2>
+<h2>Portability</h2>
 
 <p>
 By early 1973, the essentials of
@@ -1112,7 +1146,7 @@ compiler to produce
 which scanned a set of files and remarked on dubious constructions.
 </p>
 
-<h2 id="CH_GROWTH">Growth in Usage</h2>
+<h2>Growth in Usage</h2>
 
 <p>
 The success of our portability experiment on the
@@ -1146,7 +1180,7 @@ At the start of the decade, nearly every compiler was based on Johnson's
 by 1985 there were many independently-produced compiler products.
 </p>
 
-<h2 id="CH_STAND">Standardization</h2>
+<h2>Standardization</h2>
 
 <p>
 By 1982 it was clear that C needed formal standardization.
@@ -1291,7 +1325,7 @@ Not all the possible extensions are specifically numerical; they
 include a notation for structure literals.
 </p>
 
-<h2 id="CH_SUCC">Successors</h2>
+<h2>Successors</h2>
 
 <p>
 C and even B have several direct descendants, though they
@@ -1322,7 +1356,7 @@ Eiffel
 [Meyer 88].
 </p>
 
-<h2 id="CH_CRIT">Critique</h2>
+<h2>Critique</h2>
 
 <p>
 Two ideas are most characteristic of C among languages of its class:
@@ -1536,7 +1570,7 @@ the burden of managing it is placed on
 the programmer: C is hostile to automatic garbage collection.
 </p>
 
-<h2 id="CH_WHEN">Whence Success?</h2>
+<h2>Whence Success?</h2>
 
 <p>
 C has become successful to an extent far surpassing any early
@@ -1605,7 +1639,7 @@ to displace assembly language, yet sufficiently abstract and fluent to
 describe algorithms and interactions in a wide variety of environments.
 </p>
 
-<h2 id="CH_ACK">Acknowledgments</h2>
+<h2>Acknowledgments</h2>
 
 <p>
 It is worth summarizing compactly the roles of the direct contributors to today's
@@ -1634,7 +1668,7 @@ Nelson, Rob Pike, Ken Thompson, and HOPL's referees
 for advice in the preparation of this paper.
 </p>
 
-<h2 id="CH_REF">References</h2>
+<h2>References</h2>
 <br> <br>
 <dl compact="">
 <dt>[ANSI 89]</dt><dd>
@@ -1800,7 +1834,7 @@ language Algol 68,'  Acta Informatica
 pp. 1-236.
 </dd></dl>
 <br> <br>
-<a id="BOT" href="http://www.lucent.com/copyright.html">
+<a href="http://www.lucent.com/copyright.html">
 Copyright</a> © 2003 Lucent Technologies Inc.  All rights reserved.
 
 </body>
