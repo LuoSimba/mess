@@ -18,3 +18,15 @@ C99     2000年      ISO 1999 标准
 
 C11     2011年
 
+-------------------------------------
+
+GCC 会有自己的一些扩展(与标准有些不同)
+
+可以查看 GCC Manual:
+ 
+ 2. Language Standards Supported by GCC
+ 6. Extensions to the C Language Family
+
+获取相关信息。
+
+
