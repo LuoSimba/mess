@@ -1,18 +1,77 @@
+<!DOCTYPE HTML>
 
-<!-- saved from url=(0048)https://www.bell-labs.com/usr/dmr/www/chist.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
-Chistory
-</title>
-</head><body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#330088" alink="#FF0044">
-<h1>The Development of the C Language*
-</h1>
-<dl><dd><i>Dennis M. Ritchie<br>
-Bell Labs/Lucent Technologies<br>
-Murray Hill, NJ 07974  USA<br>
-<br> <br>
-<tt>dmr@bell-labs.com</tt>
-</i></dd></dl>
-<dl><dd><h4>ABSTRACT</h4>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Development of the C Lanuage</title>
+<style type="text/css">
+body { max-width: 700px; margin:0 auto; padding: 8px; background: #ddd; }
+h1 { text-align:center; }
+p { text-indent: 1em; }
+#AUTHOR { text-align:center; }
+#LeftMenu { background:white; position:fixed; left: -1px; top:10px; border:1px solid black; padding: 10px; }
+#LeftMenuContent { list-style:none; padding:0; }
+</style>
+<script type="text/javascript">
+function TEXT(str) { return document.createTextNode(str); }
+function toggleMenu(btn) {
+    var mc = document.getElementById("LeftMenuContent");
+    if (mc.style.display == 'none') {
+       mc.style.display = '';
+       btn.innerText = '<';
+    } else {
+       mc.style.display = 'none';
+       btn.innerText = '>';
+    }
+}
+
+window.onload = function () {
+    var list = document.getElementsByTagName("h2");
+    var menuContent = document.getElementById("LeftMenuContent");
+
+    for (var i = 0; i < list.length; i ++) {
+        var hnode = list.item(i);
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = '#' + hnode.id;
+        a.appendChild(TEXT(hnode.innerText));
+        li.appendChild(a);
+        menuContent.appendChild(li);
+    }
+};
+</script>
+</head>
+
+<body id="TOP" link="#0000FF" vlink="#330088" alink="#FF0044">
+
+本文对排版样式有改动，您可以<a href="https://www.bell-labs.com/usr/dmr/www/chist.html">访问原网页</a>
+
+
+<div id="LeftMenu">
+    <button onclick="toggleMenu(this)">&lt;</button>
+
+    <ul id="LeftMenuContent">
+        <li><a href="#TOP">顶部</a></li>
+        <li><a href="#BOT">底部</a></li>
+    </ul>
+</div>
+
+
+<h1>The Development of the C Language*</h1>
+
+<div id="AUTHOR">
+    <i>Dennis M. Ritchie<br>
+        Bell Labs/Lucent Technologies<br>
+        Murray Hill, NJ 07974  USA<br>
+        <br>
+        <tt>dmr@bell-labs.com</tt>
+        </i>
+</div>
+
+
+<h2 id="CH_ABSTRACT">ABSTRACT</h2>
+
+<p>
 The C programming language was devised in the early 1970s as a system
 implementation language for the nascent Unix operating system.
 Derived from the typeless language BCPL, it evolved
@@ -21,11 +80,10 @@ created on a tiny machine as a tool to improve
 a meager programming environment, it has become
 one of the dominant languages of today.
 This paper studies its evolution.
-</dd></dl>
-<h4>Introduction
-</h4>
-<p>
 </p>
+
+<h2 id="CH_INTRO">Introduction</h2>
+
 <dl>
 <dt></dt><dt> </dt><dd>
 NOTE:<i> *Copyright 1993 Association for Computing Machinery, Inc.
@@ -41,6 +99,7 @@ ACM Press (New York) and Addison-Wesley (Reading, Mass), 1996;
 ISBN 0-201-89502-1.
 </i></dd><dt> </dt><dd></dd></dl>
 <br>
+
 This paper is about the development of the C programming language,
 the influences on it,
 and the conditions under which it was created.
@@ -67,8 +126,9 @@ associated with Unix;
 more recently, its use has spread much more widely, and today it
 is among the languages most commonly used throughout the computer industry.
 </p>
-<h4>History: the setting
-</h4>
+
+
+<h2 id="CH_HIS_SETTING">History: the setting</h2>
 <p>
 The late 1960s were a turbulent era
 for computer systems research at Bell Telephone Laboratories
@@ -82,6 +142,7 @@ only too late and too expensively.  Even before the GE-645 Multics
 machine was removed from the premises, an informal group, led
 primarily by Ken Thompson, had begun investigating alternatives.
 </p>
+
 <p>
 Thompson wanted to create a comfortable computing
 environment constructed according to his own design, using whatever
@@ -105,6 +166,7 @@ of understanding.
 At the time we did not put much weight
 on portability; interest in this arose later.
 </p>
+
 <p>
 Thompson was faced with
 a hardware environment cramped and spartan even for the time:
@@ -119,6 +181,7 @@ GE-635 machine.
 A postprocessor
 generated a paper tape readable by the PDP-7.
 </p>
+
 <p>
 These tapes were
 carried from the GE machine to the PDP-7 for testing until a primitive Unix kernel,
@@ -131,6 +194,7 @@ were completed.  After this point, the operating system was self-supporting:
 programs could be written and tested without resort to paper tape,
 and development continued on the PDP-7 itself.
 </p>
+
 <p>
 Thompson's PDP-7 assembler outdid even DEC's in simplicity;
 it evaluated expressions and emitted the corresponding bits.
@@ -147,6 +211,7 @@ and a means of specifying another name explicitly,
 it was retained as the default executable
 result of a compilation.)
 </p>
+
 <p>
 Not long after Unix first ran on the PDP-7, in 1969, Doug McIlroy created
 the new system's first higher-level language: an implementation of
@@ -156,6 +221,7 @@ style that combines context-free syntax notation with
 procedural elements.  McIlroy and Bob Morris had used TMG to write the early
 PL/I compiler for Multics.
 </p>
+
 <p>
 Challenged by McIlroy's feat in reproducing TMG,
 Thompson decided that Unix—possibly it had not even been
@@ -176,8 +242,9 @@ Bon in turn was named either after his wife Bonnie,
 or (according to an encyclopedia quotation in its manual),
 after a religion whose rituals involve the murmuring of magic formulas.
 </p>
-<h4>Origins: the languages
-</h4>
+
+<h2 id="CH_ORIGIN">Origins: the languages</h2>
+
 <p>
 BCPL was
 designed by Martin Richards in the mid-1960s while he was visiting MIT,
@@ -195,6 +262,7 @@ during the final throes of Multics's life at Bell Labs
 and immediately after, it was the language of choice
 among the group of people who would later become involved with Unix.
 </p>
+
 <p>
 BCPL, B, and C all fit firmly in the traditional
 procedural family typified by Fortran and Algol 60.
@@ -211,6 +279,7 @@ closures.  At the same time, their abstractions lie at a sufficiently
 high level that, with care, portability between machines can
 be achieved.
 </p>
+
 <p>
 BCPL, B and C differ syntactically in many details, but broadly
 they are similar.
@@ -225,6 +294,7 @@ recognizes
 separate compilation, and provides a means for including
 text from named files.
 </p>
+
 <p>
 Several syntactic and lexical mechanisms of BCPL are
 more elegant and regular than those of B and C.
@@ -239,11 +309,14 @@ most statements with semicolons.
 In spite of the differences, most of the statements and operators of BCPL map
 directly into corresponding B and C.
 </p>
+
 <p>
 Some of the structural differences between BCPL and B
 stemmed from limitations on intermediate memory.
 For example, BCPL declarations may take the form
-</p><dl><dt></dt><dd><tt><pre>let P1 be <i>command</i>
+</p>
+
+<dl><dt></dt><dd><tt><pre>let P1 be <i>command</i>
 and P2 be <i>command</i>
 and P3 be <i>command</i>
  ...
@@ -268,6 +341,7 @@ Storage limitations on the B compiler demanded a one-pass technique in which
 output was generated as soon as possible, and the syntactic
 redesign that made this possible was carried forward into C.
 <p></p>
+
 <p>
 Certain less pleasant aspects of BCPL owed to its own technological
 problems and were consciously
@@ -285,6 +359,7 @@ Later implementations of B, and all those of C, use a conventional
 linker to resolve external names occurring in files compiled separately,
 instead of placing the burden of assigning offsets on the programmer.
 </p>
+
 <p>
 Other fiddles in the transition from BCPL to B were introduced as
 a matter of taste, and some remain controversial, for example the decision
@@ -310,6 +385,7 @@ followed by a list of names, and C
 not only followed this style but ornamented it by
 placing its type keywords at the start of declarations.
 </p>
+
 <p>
 Not every difference between the BCPL language documented in
 Richards's book
@@ -331,6 +407,7 @@ statement
 owes to divergent
 evolution rather than conscious change.
 </p>
+
 <p>
 In contrast to the pervasive syntax variation that occurred
 during the creation of B, the core semantic content of BCPL—its
@@ -362,6 +439,7 @@ refers to the contents of the pointed-to cell, either
 as a value in an expression or as the target of
 an assignment.
 </p>
+
 <p>
 Because pointers in BCPL and B are merely integer indices
 in the memory array, arithmetic on them is meaningful:
@@ -434,8 +512,9 @@ B provided corresponding routines, but people more often used
 other library functions that accessed or replaced individual
 characters in a string.
 </p>
-<h4>More History
-</h4>
+
+<h2 id="CH_MORE_HIS">More History</h2>
+
 <p>
 After the TMG version of B was working, Thompson rewrote B in itself
 (a bootstrapping step).
@@ -459,6 +538,7 @@ instead of
 ; this mistake, repaired in 1976, was induced by a seductively easy
 way of handling the first form in B's lexical analyzer.)
 </p>
+
 <p>
 Thompson went a step further by inventing the
 <tt>++</tt>
@@ -490,6 +570,7 @@ the translation of
 was smaller than that of
 <tt>x=x+1</tt>.
 </p>
+
 <p>
 The B compiler on the PDP-7 did not generate machine instructions,
 but instead `threaded code' [Bell 72], an interpretive scheme in which
@@ -498,6 +579,7 @@ of a sequence of addresses of code fragments that perform the
 elementary operations.
 The operations typically—in particular for B—act on a simple stack machine.
 </p>
+
 <p>
 On the PDP-7 Unix system, only a few things were written in B except B itself,
 because the machine was too small and too slow to do more than
@@ -522,6 +604,7 @@ that ran on an 18-bit machine with 4K words of user address space.
 This project was possible only because of the simplicity
 of the B language and its run-time system.
 </p>
+
 <p>
 Although we entertained occasional thoughts
 about implementing one of the major languages of the time like Fortran,
@@ -530,6 +613,7 @@ much simpler and smaller tools were called for.
 All these languages influenced our work,
 but it was more fun to do things on our own.
 </p>
+
 <p>
 By 1970, the Unix project had shown enough promise that we were
 able to acquire the new DEC PDP-11.
@@ -555,6 +639,7 @@ Once its disk appeared, we quickly migrated to it after
 transliterating assembly-language commands to the PDP-11 dialect, and
 porting those already in B.
 </p>
+
 <p>
 By 1971, our miniature computer center was beginning to have users.
 We all wanted to create interesting software more easily.
@@ -566,8 +651,9 @@ first version of the
 <i>yacc</i>
 parser-generator [Johnson 79a].
 </p>
-<h4>The Problems of B
-</h4>
+
+<h2 id="CH_PROBLEM_B">The Problems of B</h2>
+
 <p>
 The machines on which we first used BCPL and then B were word-addressed,
 and these languages' single data type, the `cell,' comfortably
@@ -580,6 +666,7 @@ cells and then repack, or to access and replace
 individual characters,
 began to feel awkward, even silly, on a byte-oriented machine.
 </p>
+
 <p>
 Second, although the original PDP-11 did not provide for floating-point
 arithmetic,
@@ -591,6 +678,7 @@ only because on the relevant machines, a single word
 was large enough to contain a floating-point number;
 this was not true on the 16-bit PDP-11.
 </p>
+
 <p>
 Finally, the B and BCPL model implied overhead in dealing
 with pointers: the language rules, by defining a pointer
@@ -600,6 +688,7 @@ Each pointer reference
 generated a run-time scale conversion from the pointer to the
 byte address expected by the hardware.
 </p>
+
 <p>
 For all these reasons, it seemed that a typing scheme
 was necessary to cope
@@ -608,6 +697,7 @@ coming floating-point hardware.
 Other issues, particularly type safety and interface checking, did not
 seem as important then as they became later.
 </p>
+
 <p>
 Aside from the problems with the language itself, the B compiler's
 threaded-code technique yielded programs
@@ -615,6 +705,7 @@ so much slower than their assembly-language counterparts
 that we discounted the possibility of recoding the
 operating system or its central utilities in B.
 </p>
+
 <p>
 In 1971 I began to extend the B language by adding a character type
 and also rewrote its compiler to generate PDP-11 machine instructions
@@ -625,8 +716,9 @@ capable of producing programs fast and small enough
 to compete with assembly language.
 I called the slightly-extended language NB, for `new B.'
 </p>
-<h4>Embryonic C
-</h4>
+
+<h2 id="CH_EMB">Embryonic C</h2>
+
 <p>
 NB existed so briefly that no full description of
 it was written.
@@ -797,8 +889,9 @@ I decided to follow the single-letter style and called it C,
 leaving open the question whether the name represented
 a progression through the alphabet or through the letters in BCPL.
 </p>
-<h4>Neonatal C
-</h4>
+
+<h2 id="CH_NEO">Neonatal C</h2>
+
 <p>
 Rapid changes continued after the language had been named,
 for example
@@ -918,8 +1011,9 @@ preprocessor with the rest of the language
 and the imprecision of its description in early reference
 manuals.
 </p>
-<h4>Portability
-</h4>
+
+<h2 id="CH_PORT">Portability</h2>
+
 <p>
 By early 1973, the essentials of
 modern C were complete.
@@ -1017,8 +1111,9 @@ compiler to produce
 [Johnson 79b],
 which scanned a set of files and remarked on dubious constructions.
 </p>
-<h4>Growth in Usage
-</h4>
+
+<h2 id="CH_GROWTH">Growth in Usage</h2>
+
 <p>
 The success of our portability experiment on the
 Interdata 8/32 soon led to another by Tom London and John Reiser
@@ -1050,8 +1145,9 @@ At the start of the decade, nearly every compiler was based on Johnson's
 <i>pcc</i>;
 by 1985 there were many independently-produced compiler products.
 </p>
-<h4>Standardization
-</h4>
+
+<h2 id="CH_STAND">Standardization</h2>
+
 <p>
 By 1982 it was clear that C needed formal standardization.
 The best approximation to a standard,
@@ -1194,8 +1290,9 @@ with vector or other advanced architectural features.
 Not all the possible extensions are specifically numerical; they
 include a notation for structure literals.
 </p>
-<h4>Successors
-</h4>
+
+<h2 id="CH_SUCC">Successors</h2>
+
 <p>
 C and even B have several direct descendants, though they
 do not rival Pascal in generating progeny.
@@ -1224,8 +1321,9 @@ Modula 3 [Nelson 91] and
 Eiffel
 [Meyer 88].
 </p>
-<h4>Critique
-</h4>
+
+<h2 id="CH_CRIT">Critique</h2>
+
 <p>
 Two ideas are most characteristic of C among languages of its class:
 the relationship between arrays and pointers,
@@ -1437,8 +1535,9 @@ by a library routine and
 the burden of managing it is placed on
 the programmer: C is hostile to automatic garbage collection.
 </p>
-<h4>Whence Success?
-</h4>
+
+<h2 id="CH_WHEN">Whence Success?</h2>
+
 <p>
 C has become successful to an extent far surpassing any early
 expectations.  What qualities contributed to its widespread use?
@@ -1505,8 +1604,9 @@ efficient enough
 to displace assembly language, yet sufficiently abstract and fluent to
 describe algorithms and interactions in a wide variety of environments.
 </p>
-<h4>Acknowledgments
-</h4>
+
+<h2 id="CH_ACK">Acknowledgments</h2>
+
 <p>
 It is worth summarizing compactly the roles of the direct contributors to today's
 C language.
@@ -1533,8 +1633,8 @@ I thank Brian Kernighan, Doug McIlroy, Dave Prosser, Peter
 Nelson, Rob Pike, Ken Thompson, and HOPL's referees
 for advice in the preparation of this paper.
 </p>
-<h4>References
-</h4>
+
+<h2 id="CH_REF">References</h2>
 <br> <br>
 <dl compact="">
 <dt>[ANSI 89]</dt><dd>
@@ -1700,7 +1800,8 @@ language Algol 68,'  Acta Informatica
 pp. 1-236.
 </dd></dl>
 <br> <br>
-<a href="http://www.lucent.com/copyright.html">
+<a id="BOT" href="http://www.lucent.com/copyright.html">
 Copyright</a> © 2003 Lucent Technologies Inc.  All rights reserved.
 
-</body></html>
+</body>
+</html>
