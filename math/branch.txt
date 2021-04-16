@@ -3,15 +3,15 @@ The Branches of Mathematics
 
 
 1. 数学史
-2. 数理逻辑与数学基础
+2. 数理逻辑与数学基础 Mathematical Logic: 古希腊 (Aristotle)
     2.1 演绎逻辑学（符号逻辑学）
     2.2 证明论（元数学）
     2.3 递归论
     2.4 模型论
-    2.5 公理集合论
+    2.5 公理集合论 Set Theory: 1908 (G.Cantor)
     2.6 数学基础
     2.7 数理逻辑与数学基础其他学科
-3. 数论
+3. 数论 Theory of Number: 公元前4世纪 (Diophantus)
     3.1 初等数论
     3.2 解析数论
     3.3 代数数论
@@ -21,7 +21,7 @@ The Branches of Mathematics
     3.7 概率数论
     3.8 计算数论
     3.9 数论其他学科
-4. 代数学
+4. 代数学 Algebra: 魏晋时期（刘徽）
     4.1 线性代数
     4.2 群论
     4.3 域论
@@ -42,7 +42,7 @@ The Branches of Mathematics
     4.15 代数编码理论
     4.16 代数学其他学科
 5. 代数几何学
-6. 几何学
+6. 几何学 Geometry: 古埃及
     6.1 几何学基础
     6.2 欧式几何学
     6.3 非欧几何学
@@ -55,7 +55,7 @@ The Branches of Mathematics
     6.9 分数维几何
     6.10 计算几何学
     6.11 几何学其他学科
-7. 拓扑学
+7. 拓扑学 Topology: 19世纪末
     7.1 点集拓扑学
     7.2 代数拓扑学
     7.3 同伦论
@@ -68,7 +68,7 @@ The Branches of Mathematics
     7.10 奇点理论
     7.11 微分拓扑学
     7.12 拓扑学其他学科
-8. 数学分析
+8. 数学分析 Analysis: 17世纪
     8.1 微分学
     8.2 积分学
     8.3 级数论
@@ -83,7 +83,7 @@ The Branches of Mathematics
     10.6 复流形
     10.7 特殊函数论
     10.8 函数论其他学科
-11. 常微分方程
+11. 常微分方程 Differential Equation: 17世纪
     11.1 定性理论
     11.2 稳定性理论
     11.3 解析理论
@@ -112,7 +112,7 @@ The Branches of Mathematics
     15.9 广义函数论
     15.10 非线性泛函分析
     15.11 泛函分析其他学科
-16. 计算数学
+16. 计算数学 Computational Mathematics: 公元前14世纪中国
     16.1 插值法与逼近论
     16.2 常微分方程数值解
     16.3 偏微分方程数值解
@@ -122,7 +122,7 @@ The Branches of Mathematics
     16.8 随机数值实验
     16.9 误差分析
     16.10 计算数学其他学科
-17. 概率论
+17. 概率论 Probability Thery: 16世纪
     17.1 几何概率
     17.2 概率分布
     17.3 极限理论
@@ -132,7 +132,7 @@ The Branches of Mathematics
     17.7 鞅论
     17.8 应用概率论（具体应用入有关学科）
     17.9 概率论其他学科
-18. 数理统计学
+18. 数理统计学 Mathematical Statistic: 16世纪
     18.1 抽样理论（包括抽样分布，抽样调查等）
     18.2 假设检验
     18.3 非参数统计
@@ -151,7 +151,7 @@ The Branches of Mathematics
     19.3 保险数学
     19.4 统计模拟
 20. 应用统计数学其他科学
-21. 运筹学
+21. 运筹学 Operational Research: 1938英格兰
     21.1 线性规划
     21.2 非线性规划
     21.3 动态规划
