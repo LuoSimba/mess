@@ -28,6 +28,12 @@ int main(void)
 
 void main(void)
 {
+    // 这里定义了 pCat 是一种 (struct ANIMAL *)
+    // 同时也声明了 ANIMAL 是一种 (struct ANIMAL),
+    // 虽然这时它还是一个不完全类型
     struct ANIMAL * pCat;
+
+    // 这句是错的，因为 ANIMAL 的类型已经被声明为结构体
+    union ANIMAL;
 }
 
