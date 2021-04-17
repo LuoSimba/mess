@@ -1,0 +1,10 @@
+
+查看函数的汇编代码：
+
+(gdb) disassemble foo
+
+设置 Intel 汇编风格：
+
+(gdb) set disassembly-flavor intel
+
+
