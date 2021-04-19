@@ -1,4 +1,9 @@
 
+gdb 的初始化配置文件在：
+
+/etc/gdb/gdbinit
+
+
 查看函数的汇编代码：
 
 (gdb) disassemble foo
