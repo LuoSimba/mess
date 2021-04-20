@@ -40,5 +40,9 @@ void main(void)
     // pointer type
     s = sizeof(int *);
     s = sizeof(int (*)(int, int));
+
+    // structure type
+    s = sizeof(struct {});
+    s = sizeof(struct { int x; });
 }
 
