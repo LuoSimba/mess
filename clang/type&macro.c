@@ -62,6 +62,23 @@
 //  (c) the void type.
 // incomplete type may not be instantiated (its size is not known),
 // nor may its members be accessed (they, too, are unknown).
+//
+//
+// ---
+// Type qualifiers:
+//   const
+//   restrict
+//   volatile
+//
+// qualify: to add to something that has already been said, in order
+// to limit its effect or meaning; modify 限定，修饰
+//
+// qualifier: technical a word or phrase that limits or adds to the
+// meaning of another word or phrase （语法中的）限定语，修饰语
+//
+// unqualified type
+// qualified type
+//
 
 /*!
  * 最基础的类型与宏定义
