@@ -1,0 +1,18 @@
+
+
+Storage durations:
+    1. static
+    2. automatic
+    3. allocated
+
+static storage duration:
+    Its lifetime it the entire execution of the program
+    and its stored value is initialized only once, prior
+    to program startup.
+
+automatic storage duration:
+
+allocated storage duration:
+    The lifetime of an allocated object extends from the
+    allocation until the deallocation.
+
