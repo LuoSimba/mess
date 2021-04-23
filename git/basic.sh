@@ -1,5 +1,8 @@
 # 基本操作
 
+# 查看当前状态
+git status
+
 
 # add to index
 git add abc.txt
@@ -25,6 +28,6 @@ git diff --cached
 
 
 
-# commit
+# 提交更改
 git commit
 
