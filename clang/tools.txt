@@ -22,3 +22,8 @@ $ nm b.o
 
 
 
+-------------------------------------
+readelf - Displays information about ELF files.
+
+$ readelf --syms a.out
+
