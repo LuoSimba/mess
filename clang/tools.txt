@@ -4,13 +4,44 @@ gdb 的初始化配置文件在：
 /etc/gdb/gdbinit
 
 
+
 查看函数的汇编代码：
 
 (gdb) disassemble foo
 
+
 设置 Intel 汇编风格：
 
 (gdb) set disassembly-flavor intel
+
+
+查看内存数据 (Examine memory)
+x/FMT ADDRESS
+
+(gdb) x /nfu
+查看四条指令
+(gdb) x /4i foo
+查看二进制: int a;
+(gdb) x /tw  &a
+(gdb) x /4tb &a  
+查看字符串的细节: char * str = "白云";
+(gdb) x /7xb str
+
+
+n = 输出对象的个数 (默认一个单位)
+f = 输出对象的格式
+    x = 十六进制
+    t = 二进制表示
+    i = 汇编指令
+    d = decimal
+    u = unsigned decimal
+    f = float
+u = 输出对象的单位
+    b = byte     (1)
+    h = halfword (2)
+    w = word     (4)
+    g = giant    (8)
+
 
 
 
@@ -28,4 +59,13 @@ readelf - Displays information about ELF files.
 $ readelf --syms a.out
 
 $ readelf --syms b.o
+
+
+
+
+
+-------------------------------------
+ld - The GNU linker
+
+
 
