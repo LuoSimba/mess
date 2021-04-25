@@ -52,3 +52,56 @@ struct User {
 struct {
 } a, b;
 
+
+
+// 结构体不可定义两遍，就算一模一样也不行：
+// 错误：重复定义
+struct User {};
+struct User {};
+
+// 错误：重复定义
+struct Student { int id; };
+struct Student { int id; };
+
+// 错误：重复定义
+struct Product { int price; } prod1;
+struct Product { int price; } prod2;
+
+
+
+
+
+
+/**
+ * dot operator
+ */
+
+struct { int age; } info;
+
+// xxx = 结构体.成员;
+int value = info.age;
+
+// 结构体.成员 = xxx;
+info.age = 9;
+
+
+
+
+/**
+ * arrow operator
+ */
+struct User {
+    int age;
+};
+
+struct User u;
+struct User * pu = &u;
+
+// xxx = 结构体指针->成员;
+int a = pu->age;
+
+// 结构体指针->成员 = xxx;
+pu->age = 9;
+
+
+
