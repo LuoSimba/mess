@@ -13,3 +13,12 @@ gdb 的初始化配置文件在：
 (gdb) set disassembly-flavor intel
 
 
+
+-------------------------------------
+nm - list symbols from object files
+
+$ nm b.o
+00000000 T main
+
+
+
