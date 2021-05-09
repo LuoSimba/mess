@@ -1,0 +1,10 @@
+
+bios
+====
+
+Basic Input Output System.
+
+基本输入输出系统
+
+在 IBM PC 兼容系统上，BIOS 是一种业界标准的固件接口。
+
