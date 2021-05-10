@@ -1,5 +1,5 @@
 
-bios
+BIOS
 ====
 
 Basic Input Output System.
@@ -7,4 +7,28 @@ Basic Input Output System.
 基本输入输出系统
 
 在 IBM PC 兼容系统上，BIOS 是一种业界标准的固件接口。
+
+
+
+
+UEFI
+====
+
+Unified Extensible Firmware Interface
+
+统一可扩展固件接口
+
+UEFI 是一种更新的 BIOS，作为传统 BIOS 的替代方案。
+传统的 BIOS 称为 Legacy BIOS。
+
+
+
+BIOS vs UEFI
+============
+
+BIOS and UEFI 是系统的启动方式。
+
+
+
+
 
