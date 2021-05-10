@@ -30,5 +30,33 @@ BIOS and UEFI 是系统的启动方式。
 
 
 
+GPT
+===
 
+GPT 是 UEFI 的一部分。
+GPT 是与 MBR 相对应的概念。
+
+GPT and MBR 是硬盘的分区类型，是硬盘数据的组织方式。
+
+
+
+分区类型
+========
+
+    MBR
+    GPT
+
+
+组合方式
+========
+
+    Legacy + MBR
+    UEFI   + GPT
+
+
+
+参考
+====
+
+    https://uefi.org/
 
