@@ -1,0 +1,19 @@
+
+
+PC:  IBM  compatible Personal Computer
+MAC: Apple Macintosh Personal Computer
+
+
+
+
+广义的 PC 就是 Personal Computer，个人电脑。
+狭义的 PC 是指 IBM PC 及其兼容机。
+
+MAC 是个人电脑的一种，但是不是 IBM PC 兼容的。
+
+
+
+The 80x86 IBM PC and compatible computers
+
+
+
