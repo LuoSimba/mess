@@ -1,0 +1,17 @@
+
+
+the first SCSI disk
+-------------------
+
+/dev/sda: block special
+
+
+
+floppy disk
+-----------
+
+/dev/fd0: block special
+
+
+
+
