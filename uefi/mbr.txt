@@ -50,11 +50,15 @@ MBR - Master Boot Record
 
 
 
+
+
+
 注意
 ====
 
 MBR 是不属于任何一个操作系统的。
 
+手工读取、写入磁盘的 MBR 可以使用 dd 命令。
 
 
 
