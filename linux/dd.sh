@@ -69,8 +69,10 @@ echo "aabbccdd" | dd bs=2 count=1
 # 结果为 "aa"
 
 
-# 复制磁盘的 MBR
+# 复制磁盘的 MBR，到一个文件
 dd if=/dev/sda bs=512 count=1 > mbr.bin
+# or
+dd if=/dev/sda of=mbr.bin bs=512 count=1 
 
 
 
