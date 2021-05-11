@@ -44,6 +44,12 @@ BIOS and UEFI 是系统的启动方式。
 
 
 
+
+MBR: win7
+GPT: win8, win10
+
+
+
 参考
 ====
 

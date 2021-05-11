@@ -43,6 +43,13 @@ MBR - Master Boot Record
        固定为 0x55AA
 
 
+电脑启动
+========
+
+    BIOS --> 加载 MBR --> 启动 Windows
+
+
+
 注意
 ====
 
