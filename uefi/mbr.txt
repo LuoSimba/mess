@@ -1,0 +1,53 @@
+
+
+MBR - Master Boot Record
+
+主引导记录
+
+
+广义的 MBR 包含整个扇区：引导程序，分区表，分隔标识。
+狭义的 MBR 仅指引导程序。
+
+
+
+位置
+====
+
+硬盘的 0 磁道 0 柱面 1 扇区称为主引导扇区
+或者逻辑扇区 0
+
+
+
+结构
+====
+
+主引导扇区由三个部分组成：
+
+
+    1. boot loader
+
+       主引导程序 = 446 Bytes
+        
+    2. DPT (Disk Partition Table)
+
+       硬盘分区表 = 64 Bytes  (16x4)
+
+       分区1 = 16 Bytes
+       分区2 = 16 Bytes
+       分区3 = 16 Bytes
+       分区4 = 16 Bytes
+
+    3. magic number (FLAG)
+
+       硬盘有效标志 = 2 Bytes
+       固定为 0x55AA
+
+
+注意
+====
+
+MBR 是不属于任何一个操作系统的。
+
+
+
+
