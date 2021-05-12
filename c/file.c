@@ -88,13 +88,11 @@ else
 //        file.
 //
 // r+   - Open for reading and writing.
-//        The stream is positioned at the beginning of the
-//        file.
+//        The stream is positioned at the beginning of the file.
 //
 // w    - Truncate file to zero length or create text file
 //        for writing.
-//        The stream is positioned at the beginning of the
-//        file.
+//        The stream is positioned at the beginning of the file.
 //
 // w+   - Open for reading and writing.
 //        The file is created if it does not exist. otherwise
@@ -121,5 +119,41 @@ else
 // environments.
 //
 FILE * fopen(const char * path, const char * mode);
+
+// binary stream output
+//
+// The function fwrite() writes nmemb elements of data,
+// each size bytes long, to the stream pointed to by 
+// stream, obtaining them from the location given by ptr.
+size_t fwrite(
+        const void * ptr,
+        size_t size,
+        size_t nmemb,
+        FILE * stream);
+
+// close a stream
+//
+// The fclose() function flushes the stream pointed to
+// by fp (writing any buffered output data using fflush)
+// and closes the underlying file descriptor.
+int fclose(FILE * fp);
+
+
+/*!
+ * 简单的文件写入
+ */
+void foo(void)
+{
+    char * str = "hello";
+
+    // 打开当前目录下文件 data
+    // 如果文件存在，则原有内容将被清空
+    FILE * fp = fopen("data", "w");
+
+    fwrite(str, strlen(str), 1, fp);
+
+    fclose(fp);
+}
+
 
 
