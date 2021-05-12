@@ -1,4 +1,5 @@
 
+#include <stdio.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -70,5 +71,55 @@ else
     // fail
     char * error_string = strerror(errno);
 }
+
+
+// stream open function
+//
+// The fopen() function opens the file whose name is the
+// string pointed to by path and associates a stream with
+// it.
+//
+// The argument mode points to a string beginning with one
+// of the following sequences (Additional characters may
+// follow these sequences.):
+//
+// r    - Open text file for reading.
+//        The stream is positioned at the beginning of the
+//        file.
+//
+// r+   - Open for reading and writing.
+//        The stream is positioned at the beginning of the
+//        file.
+//
+// w    - Truncate file to zero length or create text file
+//        for writing.
+//        The stream is positioned at the beginning of the
+//        file.
+//
+// w+   - Open for reading and writing.
+//        The file is created if it does not exist. otherwise
+//        it is truncated. The stream is positioned at the
+//        beginning of the file.
+//
+// a    - Open for appending (writing at end of file).
+//        The file is created if it does not exist.
+//        The stream is positioned at the end of the file.
+//
+// a+   - Open for reading and appending (writing at end of
+//        file). 
+//        The file is created if it does not exist.
+//        The initial file position for reading is at the 
+//        beginning of the file, but output is always appended
+//        to the end of the file.
+//
+// b    - ignored.
+//
+// the 'b' is ignored on all POSIX conforming system, including Linux.
+// (Other systems may treat text files and binary files differently,
+// and adding the 'b' may be a good idea if you do I/O to a binary 
+// file and expect that your program may be ported to non-Unix
+// environments.
+//
+FILE * fopen(const char * path, const char * mode);
 
 
