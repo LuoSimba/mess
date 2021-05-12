@@ -5,15 +5,6 @@ gdb 的初始化配置文件在：
 
 
 
-查看函数的汇编代码：
-
-(gdb) disassemble foo
-
-
-设置 Intel 汇编风格：
-
-(gdb) set disassembly-flavor intel
-
 
 查看内存数据 (Examine memory)
 x/FMT ADDRESS
@@ -43,8 +34,6 @@ u = 输出对象的单位
     g = giant    (8)
 
 
-查看宏定义
-(gdb) info macro O_RDONLY
 
 
 -------------------------------------

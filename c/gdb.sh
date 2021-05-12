@@ -8,13 +8,38 @@ gdb --quiet
 
 
 
-# 命令
+# ========
+# 常用命令
+# ========
+
+# 开始调试，并停止在 main 函数入口处
 start
+
 run
 next
 step
 shell
-quit
+
+# 查看函数的汇编代码
+disassemble foo
+
+# 查看宏定义
+info macro O_RDONLY
+
 info functions
+
+# 退出 gdb
+quit
+
+
+# ========
+# 其他命令
+# ========
+
+# 设置 Intel 汇编风格
+set disassembly-flavor intel
+
+# 打印易读的结构体内容
+set print pretty
 
 
