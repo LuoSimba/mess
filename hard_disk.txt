@@ -1,0 +1,12 @@
+
+
+
+SATA: Serial ATA
+(Serial ATA Working Group)
+
+PATA: Parallel ATA
+(= IDE)
+
+SCSI: Small Computer System Interface
+
+
