@@ -15,3 +15,8 @@ floppy disk
 
 
 
+device that always output '\0'
+------------------------------
+
+/dev/zero: character special
+
