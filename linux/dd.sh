@@ -100,4 +100,8 @@ time dd if=/dev/zero of=b.bin bs=4K count=125000
 
 
 
+# Disk Speed Test: read from disk
+time dd if=a.bin of=/dev/null bs=512 count=1000000
+time dd if=a.bin of=/dev/null bs=4K  count=125000
+
 
