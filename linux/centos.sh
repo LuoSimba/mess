@@ -11,3 +11,6 @@ systemctl set-default graphical.target
 systemctl set-default multi-user.target
 
 
+# switch to GUI when boot to SHELL
+startx
+
