@@ -15,8 +15,11 @@ floppy disk
 
 
 
-device that always output '\0'
-------------------------------
+device that always output NUL (0x00)
+------------------------------------
 
 /dev/zero: character special
+
+usage: dd if=/dev/zero of=a.bin bs=512 count=1
+
 
