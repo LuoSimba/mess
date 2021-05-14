@@ -1,4 +1,4 @@
-
+# see also: parted
 
 # fdisk - Partition table manipulator for Linux
 
