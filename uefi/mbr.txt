@@ -27,6 +27,9 @@ MBR - Master Boot Record
     1. boot loader
 
        主引导程序 = 446 Bytes
+
+       0x01b8 - 51,f1,5a,90
+       Disk identifier: 0x905af151 (4 bytes)
         
     2. DPT (Disk Partition Table)
 
