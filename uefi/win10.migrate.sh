@@ -3,6 +3,11 @@
 # From: /dev/sda
 #   To: /dev/nvme0n1
 
+# -----------------------------
+# 0. Prepare
+# 0.1 Make sure page file (which is used as RAM) is in driver 'C'.
+# -----------------------------
+
 
 # -----------------------------
 # 1. show the detail of the GPT disk layout.
