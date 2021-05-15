@@ -33,6 +33,12 @@ GPT 头存储于 LBA1，接下来才是分区表本身。
 为了防止设备不支持 GPT，GPT 在引导的最开始部分也有
 一段 MBR 引导， 叫做保护引导。
 
+PMBR: Protective MBR (for a bootable disk)
+
+ DPT 1: 00-00 02 00-EE-FF FF FF-01 00 00 00-FF FF FF FF
+ DPT 2: 00-00 00 00-00-00 00 00-00 00 00 00-00 00 00 00
+ DPT 3: 00-00 00 00-00-00 00 00-00 00 00 00-00 00 00 00
+ DPT 4: 00-00 00 00-00-00 00 00-00 00 00 00-00 00 00 00
 
 
 print information about a partition
