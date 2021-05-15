@@ -35,4 +35,15 @@ GPT 头存储于 LBA1，接下来才是分区表本身。
 
 
 
+print information about a partition
+===================================
+
+    Device: /dev/nvme0n1p1
+     Start: 2048
+       End: 1085439
+   Sectors: 1083392
+      Size: 529M
+      Type: Windows recovery environment
+ Type-UUID: DE94BBA4-06D1-4D40-A16A-BFD50179D6AC
+      UUID: 3DE7FA97-6273-9E4B-8DBB-1887DC125749
 
