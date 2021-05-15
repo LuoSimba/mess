@@ -11,6 +11,13 @@
 
 # -----------------------------
 # 1. show the detail of the GPT disk layout.
+#
+#    We need 4 partitions:
+#
+#     > Windows recovery environment ?
+#     > EFI System (for boot)
+#     > Microsoft reverved (MSR)
+#     > Microsoft basic data (Where system located)
 # -----------------------------
 fdisk -l /dev/sda
 
