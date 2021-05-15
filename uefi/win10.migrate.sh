@@ -37,5 +37,7 @@ fdisk /dev/nvme0n1
 #    GUID(/dev/nvme0n1) = GUID(/dev/sda)
 #
 #    Windows will boot failed when disk identifier mismatch.
-# 3.1 PMBR not copy.
+# 3.1 PMBR can be different.
+# 3.2 UUID(EFI System) is not important.
+#     UEFI is able to find partition(EFI System), not by UUID.
 # -----------------------------
