@@ -36,7 +36,13 @@ fdisk /dev/nvme0n1
 # 3. change disk GUID
 #    GUID(/dev/nvme0n1) = GUID(/dev/sda)
 #
-#    Windows will boot failed when disk identifier mismatch.
+#    Windows will boot failed when disk identifier mismatch,
+#    error code: 0xc000000e
+#    
+#    change partition UUID,
+#    UUID(/dev/nvme0n1p4) = UUID(/dev/sda4)
+#    Otherwise, error code: 0xc0000225
+#
 # 3.1 PMBR can be different.
 # 3.2 UUID(EFI System) is not important.
 #     UEFI is able to find partition(EFI System), not by UUID.
