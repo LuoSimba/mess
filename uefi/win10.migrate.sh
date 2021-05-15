@@ -28,6 +28,15 @@ fdisk -l /dev/sda
 
 # -----------------------------
 # 2. make sure that /dev/nvme0n1 has the same layout.
+# 2.1 Start=?
+# 2.2 End=?
+# 2.3 Sectors=(auto)
+# 2.4 Size=(auto)
+# 2.5 Type=?
+# 2.6 Type-UUID=(auto)
+# 2.7 Name=?
+# 2.8 Attrs=?
+# 2.9 GUID=?
 # -----------------------------
 fdisk /dev/nvme0n1
 
