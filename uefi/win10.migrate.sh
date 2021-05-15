@@ -12,9 +12,9 @@
 # -----------------------------
 # 1. show the detail of the GPT disk layout.
 #
-#    We need 4 partitions:
+#    We need all of these 4 partitions:
 #
-#     > Windows recovery environment ?
+#     > Windows recovery environment
 #     > EFI System (for boot)
 #     > Microsoft reverved (MSR)
 #     > Microsoft basic data (Where system located)
@@ -41,7 +41,7 @@ fdisk -l /dev/sda
 # 2.4 Size=(auto)
 # 2.5 Type=?
 # 2.6 Type-UUID=(auto)
-# 2.7 Name=?
+# 2.7 Name=? (optional)
 # 2.8 Attrs=?
 # 2.9 GUID=?
 # -----------------------------
@@ -62,4 +62,8 @@ fdisk /dev/nvme0n1
 # 3.1 PMBR can be different.
 # 3.2 UUID(EFI System) is not important.
 #     UEFI is able to find partition(EFI System), not by UUID.
+# 3.3 UUID(Microsoft reserved) is not important.
 # -----------------------------
+
+
+
