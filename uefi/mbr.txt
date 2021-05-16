@@ -40,6 +40,14 @@ MBR - Master Boot Record
        分区3 = 16 Bytes
        分区4 = 16 Bytes
 
+       分区信息 = {
+           分区活动状态标志;
+           文件系统标识;
+           起始柱面号、磁头号、扇区号;
+           起始扇区位置 = 4 字节;
+           分区总扇区数目 = 4 字节;
+       }
+
     3. magic number (FLAG)
 
        硬盘有效标志 = 2 Bytes

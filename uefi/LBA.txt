@@ -1,0 +1,44 @@
+
+LBA
+===
+
+    Locical Block Address
+    逻辑区块地址
+
+    一般用在硬盘上。
+
+    LBA 是非常单纯的一种定址模式：
+    从 0 开始编号来定位区块;
+    第一区块 LBA=0;
+    第二区块 LBA=1;
+    依次类推。
+
+CHS
+===
+
+    Cylinders-Headers-Sectors
+
+    LBA 是用来替代 CHS 定址模式的。
+
+
+LBA vs CHS
+==========
+
+    CHS 描述存储设备硬件构造;
+    LBA 是一种抽象的地址，由磁盘控制器内部转换为 CHS。
+
+
+    CHS --> LBA:
+
+    H = heads per cylinder;  // 每个磁柱的磁头数
+    S = sectors per track;   // 每磁道的扇区数
+    lba = (c*H + h)*S + s-1;
+
+    LBA --> CHS:
+    
+    c = lba / (S*H);
+    h = (lba / S) mod H;
+    s = lba mod S + 1;
+
+
+
