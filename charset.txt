@@ -1,0 +1,30 @@
+
+BOM
+===
+
+	Byte Order Mark
+
+	字节顺序标记
+
+	出现在文本文件头部。Unicode 编码标准中用于
+	标识文件是采用那种格式的编码。
+
+	在 UCS 编码中有一个叫做 Zero Width No-Break Space
+	中文叫做 零宽无间断间隔。编码为：
+	
+	FEFF
+
+	这是一个在 UCS 中不存在的字符，所以不应该出现在实
+	际的传输中。
+
+	FEFF - Big-Endian
+	FFFE - Little-Endian
+
+	UTF-8 不需要 BOM 来表明字节顺序，但可以用 BOM 来
+	表明编码方式。如果字节流开头为 EF BB BF 三个字节，
+	则这是 UTF-8 编码。
+
+
+
+
+
