@@ -4,13 +4,13 @@
 # get current config
 systemctl get-default
 
-# boot to GUI
+# 启动到图形界面
 systemctl set-default graphical.target
 
-# boot to SHELL
+# 启动到终端界面
 systemctl set-default multi-user.target
 
 
-# switch to GUI when boot to SHELL
+# 从终端切换到图形界面
 startx
 

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# swap capslock and control
+# 交换 CapsLock 与 Control
 xmodmap Xmodmap
 

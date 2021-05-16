@@ -14,5 +14,10 @@ fdisk -l
 
 fdisk -l /dev/sda
 
+# 编辑某一块硬盘
+fdisk /dev/sda
 
+# 编辑某一个文件（将文件当作磁盘来对待）
+dd if=/dev/zero of=floppy.img bs=512 count=2880
+fdisk floppy.img
 
