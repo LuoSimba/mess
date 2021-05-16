@@ -1,12 +1,46 @@
 
+ATA
+===
+    Advanced Technology Attachment
+
+IDE
+===
+    Integrated Drive Electronics
+    集成驱动电子设备
+
+    IDE 是一种计算机系统接口，主要用于
+    硬盘和 CD-ROM，本意为 "把控制器与
+    盘体集成在一起的硬盘"
+
+ATA vs IDE
+==========
+    ATA 是一个控制器技术。
+    IDE 是一个匹配 ATA 的磁盘驱动器技术。
+    但是两个术语经常可以互换。
 
 
-SATA: Serial ATA
-(Serial ATA Working Group)
+SATA
+====
+    Serial ATA
+    (Serial ATA Working Group)
 
-PATA: Parallel ATA
-(= IDE)
+PATA
+====
+    Parallel ATA
+    并行高技术配置
 
-SCSI: Small Computer System Interface
+    就是原有的 ATA 改名而来，以区别 STAT。
+    (= ATA)
+    (= IDE)
+
+SCSI
+====
+    Small Computer System Interface
+
+
+SSD
+===
+    Solid State Drive
+    固态硬盘
 
 

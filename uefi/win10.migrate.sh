@@ -49,8 +49,8 @@ fdisk -l /dev/sda
 # 2.2 得到分区的扇区数，和空间大小
 # 2.3 设置分区类型
 # 2.4 指定分区的名称 (可选)
-# 2.8 Attrs=?
-# 2.9 GUID=?
+# 2.5 Attrs=?
+# 2.6 GUID=?
 # -----------------------------
 fdisk /dev/nvme0n1
 
@@ -66,12 +66,18 @@ fdisk /dev/nvme0n1
 # -----------------------------
 
 
-# 4. 更新分区的 UUID 信息
+# 4. 更新 C 盘分区的 UUID 信息
 #    
 #    UUID(/dev/nvme0n1p4) = UUID(/dev/sda4)
 #
 #    否则就会报错误 error code: 0xc0000225
 # -----------------------------
+
+# 5. 复制 4 个分区的内容到新硬盘
+dd if=/dev/sda1 of=/dev/nvme0n1p1 ibs=4K obs=512
+dd if=/dev/sda2 of=/dev/nvme0n1p2 ibs=4K obs=512
+dd if=/dev/sda3 of=/dev/nvme0n1p3 ibs=4K obs=512
+dd if=/dev/sda4 of=/dev/nvme0n1p4 ibs=4K obs=512
 
 # 注意
 # ----
