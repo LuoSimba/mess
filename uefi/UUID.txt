@@ -1,0 +1,18 @@
+
+UUID
+====
+
+    Universally Unique Identifier
+    通用唯一识别码
+    含有 32 个字节，比如：
+    550e8400-e29b-41d4-a716-446655440000
+    (二进制表示为 128 位)
+
+GUID
+====
+    
+    Globally Unique Identifier
+    是微软对 UUID 的一种实现方式
+
+
+
