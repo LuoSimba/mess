@@ -30,6 +30,8 @@ MBR - Master Boot Record
 
        0x01b8 - 51,f1,5a,90
        Disk identifier: 0x905af151 (4 bytes)
+
+       0x01ba - 00 00 (2 bytes)
         
     2. DPT (Disk Partition Table)
 
@@ -46,7 +48,7 @@ MBR - Master Boot Record
            起始柱面号、磁头号、扇区号;
            起始扇区位置 = 4 字节;
            分区总扇区数目 = 4 字节;
-       }
+       } = 16 bytes;
 
     3. magic number (FLAG)
 
