@@ -22,3 +22,7 @@ fdisk /dev/sda
 dd if=/dev/zero of=floppy.img bs=512 count=2880
 fdisk floppy.img
 
+
+# fdisk works not well in VMware Virtual Machine Environment.
+# It usually recognizes Sector Unit more larger then 512.
+# and the value of 'Start', 'End' and 'Sectors' are wrong.
