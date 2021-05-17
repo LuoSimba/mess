@@ -1,6 +1,7 @@
 # see also: parted
 
 # fdisk - Partition table manipulator for Linux
+# 硬盘分区工具
 
 
 # -l
