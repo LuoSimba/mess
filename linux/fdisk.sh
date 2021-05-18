@@ -23,6 +23,8 @@ dd if=/dev/zero of=floppy.img bs=512 count=2880
 fdisk floppy.img
 
 
-# fdisk works not well in VMware Virtual Machine Environment.
-# It usually recognizes Sector Unit more larger then 512.
-# and the value of 'Start', 'End' and 'Sectors' are wrong.
+# 在 VMware 虚拟机环境中, fdisk 获取到 U 盘的扇区
+# 信息是错误的, 往往比 512 大很多。因此列出的分区
+# 起始位置, 和结束位置都是很奇怪的数值。（可能和
+# 虚拟机里的系统有关）
+
