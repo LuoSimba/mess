@@ -24,6 +24,10 @@ SATA
     Serial ATA
     (Serial ATA Working Group)
 
+    STAT 官网 https://stat-io.org
+
+    下载 STAT 规范是要钱的
+
 PATA
 ====
     Parallel ATA
