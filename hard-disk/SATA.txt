@@ -11,6 +11,31 @@ SATA
     （从官方下载 STAT 文档是要钱的）
 
 
+总体运行结构
+============
+
+    CPU 是不会直接和存储设备通信的。
+
+    CPU <---(AHCI协议)---> SATA 控制器 <---(ATAPI)---> 硬盘
+
+    SATA 控制器，就是 AHCI 控制器。
+
+
+AHCI
+====
+
+    Advanced Host Controller Interface
+    高级主机控制器接口
+
+    可以让 SATA 存储设备激活高级 SATA 功能。
+
+    SATA 控制器通常会有两种以上工作模式：
+
+        1. IDE 仿真
+        2. AHCI
+        3. RAID (有些控制器支持)
+
+
 SATA 接口协议
 =============
 

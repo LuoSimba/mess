@@ -52,13 +52,3 @@ SSD
     并口硬盘指 IDE 硬盘。
     串口硬盘指 STAT 硬盘。
 
-
-AHCI
-====
-    
-    Advanced Host Controller Interface
-    高级主机控制器接口
-    
-    可以让 STAT 存储设备激活高级 SATA 功能。
-
-
