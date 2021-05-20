@@ -14,3 +14,18 @@ git commit --amend
 git mv * sub
 # 这样就能忽略无法迁移的项目
 git mv -k * sub
+
+
+
+# 以下两个命令的区别
+git pull
+git fetch
+
+# 根据不同的配置
+pull = fetch + merge
+# or
+pull = fetch + rebase
+
+
+
+
