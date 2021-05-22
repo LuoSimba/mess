@@ -32,9 +32,4 @@ drop index part_of_name on t;
 -- -----------------------------------
 select row_count();
 select left('abcd', 2);
-select unix_timestamp();
-select unix_timestamp(
-    CAST( now() as DATE )
-);
-
 
