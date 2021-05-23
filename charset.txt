@@ -27,4 +27,34 @@ BOM
 
 
 
+Charset 字符集  = character set
+Encoding 编码   = character encoding
+
+字符集与字符集编码是两个不同层面的概念。
+
+编码依赖于字符集。
+一个字符集可以有多个编码实现。
+
+html: <meta charset="utf-8">
+
+xml: <?xml version="1.0" encoding="UTF-8"?>
+
+xml 更加严谨
+
+
+UTF-8
+UTF-16
+UTF-32
+都是对同一种字符集的不同编码实现。
+
+
+早期，字符集与编码是一一对应的。但是随着
+时间的发展，出现了一对多的情况。
+
+
+一一对应：GB2312
+
+Unicode 是字符集，对应了三种编码：
+UTF-8, UTF-16, UTF-32
+
 
