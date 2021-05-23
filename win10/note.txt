@@ -6,3 +6,9 @@ C:\用户\我\AppData\Local\Packages
     \Microsoft.Windows.ContentDeliveryManager_XXXXXXXXXXXXX
     \LocalState\Assets\ 
 
+
+交换 CapsLock 和 Control 按键：
+
+    Switch-CapsLock-Control.reg
+
+
