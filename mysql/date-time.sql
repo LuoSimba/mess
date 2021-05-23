@@ -32,3 +32,9 @@ select from_unixtime();
 -- 将时间戳转化为 DATETIME
 select from_unixtime( 1621612800 );
 
+
+
+-- 时间运算
+select date_add(create_date, interval 1 year);
+
+
