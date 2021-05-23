@@ -1,0 +1,8 @@
+
+
+Windows 10 欢迎界面的背景图片存放在：
+
+C:\用户\我\AppData\Local\Packages
+    \Microsoft.Windows.ContentDeliveryManager_XXXXXXXXXXXXX
+    \LocalState\Assets\ 
+
