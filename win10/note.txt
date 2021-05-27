@@ -12,3 +12,21 @@ C:\用户\我\AppData\Local\Packages
     Switch-CapsLock-Control.reg
 
 
+
+
+文件系统错误报告
+================
+检测到下列文件系统错误。分区容量未做调整。请
+修正错误后再行调整。
+
+$Bitmap中有标记为已使用的未用簇。
+
+使用 DiskGenius 扩展分区大小时出现以上错误。
+
+解决方法：
+在 CMD 命令行窗口执行：
+
+    chkdsk /f /x c:
+
+
+
