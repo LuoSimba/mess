@@ -1,5 +1,10 @@
 # 基本操作
 
+
+# 在当前目录下建立新的版本库
+git init
+
+
 # 查看当前状态
 git status
 
@@ -30,4 +35,5 @@ git diff --cached
 
 # 提交更改
 git commit
+git commit -m "some message"
 
