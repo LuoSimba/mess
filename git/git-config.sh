@@ -10,3 +10,6 @@
 git config --global user.name "jim"
 git config --global user.email "a@com"
 
+# 提交时如何编辑 msg
+git config --global core.editor "/path/to/gvim.exe"
+
