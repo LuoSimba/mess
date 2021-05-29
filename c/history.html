@@ -13,6 +13,7 @@ p { text-indent: 1em; color:#333; }
 #LeftMenuContent { list-style:none; padding:0; }
 #LeftMenuContent > li { cursor:pointer; }
 #LeftMenuContent > li:hover { background:pink; }
+.comment { color: gray; }
 </style>
 <script type="text/javascript">
 function TEXT(str) { return document.createTextNode(str); }
@@ -106,15 +107,36 @@ window.onscroll = function (event) {
 <h2>ABSTRACT</h2>
 
 <p>
-The C programming language was devised in the early 1970s as a system
-implementation language for the nascent Unix operating system.
-Derived from the typeless language BCPL, it evolved
+The C programming language was <strong>devised</strong><span class="comment">(created)</span> in the early 1970s as a system
+implementation language for the <strong>nascent</strong> Unix operating system.
+Derived from the typeless language <strong>BCPL</strong>, it <strong>evolved</strong>
 a type structure;
 created on a tiny machine as a tool to improve
-a meager programming environment, it has become
-one of the dominant languages of today.
+a <strong>meager</strong> programming environment, it has become
+one of the <strong>dominant</strong> languages of today.
 This paper studies its evolution.
 </p>
+
+<dl>
+    <dt>devise</dt>
+    <dd>v. 发明</dd>
+</dl>
+<dl>
+    <dt>nascent = nasc (出生) + ent (具有...性质的)</dt>
+    <dd>adj. 新生的</dd>
+</dl>
+<dl>
+    <dt>evolve = e (出) + volv (卷) + e (转出来)</dt>
+    <dd>进化，逐步发展</dd>
+</dl>
+<dl>
+    <dt>meager</dt>
+    <dd>贫瘠的</dd>
+</dl>
+<dl>
+    <dt>dominant = domin(=lord主人) + ant (...的)</dt>
+    <dd>adj. 占支配地位的</dd>
+</dl>
 
 <h2>Introduction</h2>
 
@@ -135,36 +157,38 @@ ISBN 0-201-89502-1.
 <br>
 
 This paper is about the development of the C programming language,
-the influences on it,
+the <strong>influences</strong> on it,
 and the conditions under which it was created.
-For the sake of brevity, I omit full descriptions of C itself,
+For the <strong>sake</strong> of brevity, I omit full descriptions of C itself,
 its parent B [Johnson 73] and its grandparent BCPL [Richards 79],
 and instead concentrate on characteristic elements
 of each language and how they evolved.
 <p>
 C came into being in the years 1969-1973,
-in parallel with the early development
+in <strong>parallel</strong> with the early development
 of the Unix operating system;
 the most creative period occurred during 1972.
-Another spate of changes peaked between 1977 and 1979,
-when portability of the Unix system was being demonstrated.
+Another <strong>spate</strong> of changes peaked between 1977 and 1979,
+when portability of the Unix system was being <strong>demonstrated</strong>.
 In the middle of this second period, the first widely available description
-of the language appeared:
-<i>The C Programming Language,</i>
+of the language appeared:<br />
+
+<i>The C Programming Language,</i><br />
+
 often called the `white book' or `K&amp;R' [Kernighan 78].
 Finally, in the middle 1980s, the language was officially standardized
-by the ANSI X3J11 committee, which made further changes.
+by the ANSI X3J11 <strong>committee</strong>, which made further changes.
 Until the early 1980s, although compilers existed for a variety
 of machine architectures and operating systems, the language was almost exclusively
 associated with Unix;
-more recently, its use has spread much more widely, and today it
+more recently, its use has <strong>spread</strong> much more widely, and today it
 is among the languages most commonly used throughout the computer industry.
 </p>
 
 
 <h2>History: the setting</h2>
 <p>
-The late 1960s were a turbulent era
+The late 1960s were a <strong>turbulent</strong> era
 for computer systems research at Bell Telephone Laboratories
 [Ritchie 78] [Ritchie 84].
 The company was pulling
@@ -173,14 +197,14 @@ of MIT, General Electric, and Bell Labs; by 1969, Bell Labs management,
 and even the researchers, came to believe
 that the promises of Multics could be fulfilled
 only too late and too expensively.  Even before the GE-645 Multics
-machine was removed from the premises, an informal group, led
-primarily by Ken Thompson, had begun investigating alternatives.
+machine was removed from the <strong>premises</strong>, an informal group, led
+primarily by Ken Thompson, had begun <strong>investigating</strong> alternatives.
 </p>
 
 <p>
 Thompson wanted to create a comfortable computing
 environment constructed according to his own design, using whatever
-means were available.  His plans, it is evident in retrospect,
+means were available.  His plans, it is evident in <strong>retrospect</strong>,
 incorporated many of the innovative aspects of Multics, including an
 explicit notion of a process as a locus of control,
 a tree-structured file system, a command interpreter
@@ -192,13 +216,13 @@ of us deferred another pioneering (though not original)
 element of Multics, namely writing almost exclusively in a
 higher-level language.
 PL/I, the implementation language of Multics, was not
-much to our tastes, but we were also using other languages, including BCPL, and
+much <strong>to our tastes</strong>, but we were also using other languages, including BCPL, and
 we regretted losing the advantages of writing programs in a
 language above the level of assembler, such as
 ease of writing and clarity
 of understanding.
 At the time we did not put much weight
-on portability; interest in this arose later.
+on portability; interest in this <strong>arose</strong> later.
 </p>
 
 <p>
