@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Chapter 22 InnoDB ReplicaSet</title>
+<link rel="stylesheet" href="mvl.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets + chunker.py v1.9.2" />
+<link rel="start" href="index.html" title="{book-title}" />
+<link rel="up" href="" title="" />
+<link rel="prev" href="mysql-innodb-cluster-introduction.html" title="Chapter 21 InnoDB Cluster" />
+<link rel="next" href="mysql-cluster.html" title="Chapter 23 MySQL NDB Cluster 8.0" />
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr>
+<th colspan="3" align="center">Chapter 22 InnoDB ReplicaSet</th>
+</tr>
+<tr>
+<td width="20%" align="left"><a accesskey="p" href="mysql-innodb-cluster-introduction.html">Prev</a> </td>
+<th width="60%" align="center"></th>
+<td width="20%" align="right"> <a accesskey="n" href="mysql-cluster.html">Next</a></td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter">
+<div class="titlepage">
+<div>
+<div>
+<h1 class="title"><a name="mysql-innodb-replicaset-introduction"></a>Chapter 22 InnoDB ReplicaSet</h1>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071501426032"></a><p>
+    This chapter introduces MySQL InnoDB ReplicaSet, which combines
+    MySQL technologies to enable you to deploy and administer
+    <a class="xref" href="replication.html" title="Chapter 17 Replication">Chapter 17, <i>Replication</i></a>. This content is a high-level overview
+    of InnoDB ReplicaSet, for full documentation, see
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-replicaset.html" target="_top">MySQL InnoDB ReplicaSet</a>.
+  </p><p>
+    An InnoDB ReplicaSet consists of at least two MySQL Server
+    instances, and it provides all of the MySQL Replication features you
+    are familiar with, such as read scale-out and data security.
+    InnoDB ReplicaSet uses the following MySQL technologies:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/" target="_top">MySQL Shell</a>, which is an
+        advanced client and code editor for MySQL.
+      </p></li><li class="listitem"><p>
+        MySQL Server, and <a class="xref" href="replication.html" title="Chapter 17 Replication">Chapter 17, <i>Replication</i></a>, which enables a
+        set of MySQL instances to provide availability and asynchronous
+        read scale-out. InnoDB ReplicaSet provides an alternative,
+        easy to use programmatic way to work with Replication.
+      </p></li><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/mysql-router/8.0/en/" target="_top">MySQL Router</a>, a lightweight
+        middleware that provides transparent routing between your
+        application and InnoDB ReplicaSet.
+</p></li></ul>
+</div>
+<p>
+    The interface to an InnoDB ReplicaSet is similar to
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html" target="_top">MySQL InnoDB Cluster</a>, you use MySQL Shell to work
+    with MySQL Server instances as a ReplicaSet, and MySQL Router is also
+    tightly integrated in the same way as InnoDB Cluster.
+  </p><p>
+    Being based on MySQL Replication, an InnoDB ReplicaSet has a
+    single primary, which replicates to one or more secondary instances.
+    An InnoDB ReplicaSet does not provide all of the features which
+    InnoDB Cluster provides, such as automatic failover, or
+    multi-primary mode. But, it does support features such as
+    configuring, adding, and removing instances in a similar way. You
+    can manually switch over or fail over to a secondary instance, for
+    example in the event of a failure. You can even adopt an existing
+    Replication deployment and then administer it as an
+    InnoDB ReplicaSet.
+  </p><p>
+    You work with InnoDB ReplicaSet using the
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/admin-api-overview.html" target="_top">AdminAPI</a>, provided as
+    part of MySQL Shell. AdminAPI is available in JavaScript and
+    Python, and is well suited to scripting and automation of
+    deployments of MySQL to achieve high-availability and scalability.
+    By using MySQL Shell's AdminAPI, you can avoid the need to
+    configure many instances manually. Instead, AdminAPI provides an
+    effective modern interface to sets of MySQL instances and enables
+    you to provision, administer, and monitor your deployment from one
+    central tool.
+  </p><p>
+    To get started with InnoDB ReplicaSet you need to
+    <a class="ulink" href="https://dev.mysql.com/downloads/shell/" target="_top">download</a>
+    and <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html" target="_top">install</a> MySQL Shell.
+    You need some hosts with MySQL Server instances
+    <a class="link" href="installing.html" title="Chapter 2 Installing and Upgrading MySQL">installed</a>, and you can also
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-router/8.0/en/mysql-router-installation.html" target="_top">install</a> MySQL Router.
+  </p><p>
+    InnoDB ReplicaSet supports <a class="link" href="server-administration.html#clone-plugin" title="5.6.7 The Clone Plugin">MySQL
+    Clone</a>, which enables you to provision instances simply. In
+    the past, to provision a new instance before it joined a MySQL
+    Replication deployment, you would need to somehow manually transfer
+    the transactions to the joining instance. This could involve making
+    file copies, manually copying them, and so on. You can simply
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/adding-replicaset-instances.html#add-instance-replicaset" target="_top">add an instance</a> to
+    the replica set and it is automatically provisioned.
+  </p><p>
+    Similarly, InnoDB ReplicaSet is tightly integrated with
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-router/8.0/en/" target="_top">MySQL Router</a>, and you can use
+    AdminAPI to <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/admin-api-using-router.html#registered-routers" target="_top">work with</a>
+    them together. MySQL Router can automatically configure itself based on
+    an InnoDB ReplicaSet, in a process called
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/admin-api-bootstrapping-router.html" target="_top">bootstrapping</a>,
+    which removes the need for you to configure routing manually.
+    MySQL Router then transparently connects client applications to the
+    InnoDB ReplicaSet, providing routing and load-balancing for client
+    connections. This integration also enables you to administer some
+    aspects of a MySQL Router bootstrapped against an InnoDB ReplicaSet
+    using AdminAPI. InnoDB ReplicaSet status information includes
+    details about MySQL Routers bootstrapped against the ReplicaSet.
+    Operations enable you to
+    <a class="ulink" href="https://dev.mysql.com/doc/mysql-shell/8.0/en/admin-api-bootstrapping-router.html#configuring-router-user" target="_top">create MySQL Router users</a>
+    at the ReplicaSet level, to work with the MySQL Routers bootstrapped
+    against the ReplicaSet, and so on.
+  </p><p>
+    For more information on these technologies, see the user
+    documentation linked in the descriptions. In addition to this user
+    documentation, there is developer documentation for all AdminAPI
+    methods in the MySQL Shell JavaScript API Reference or MySQL Shell
+    Python API Reference, available from
+    <a class="ulink" href="https://dev.mysql.com/doc/index-connectors.html" target="_top">Connectors and APIs</a>.
+</p>
+</div>
+<div class="copyright-footer">
+
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left"><a accesskey="p" href="mysql-innodb-cluster-introduction.html">Prev</a></td>
+<td width="20%" align="center"><a accesskey="u" href="">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="mysql-cluster.html">Next</a></td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 21 InnoDB Cluster</td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top">Chapter 23 MySQL NDB Cluster 8.0</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

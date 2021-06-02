@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Chapter 29 Connectors and APIs</title>
+<link rel="stylesheet" href="mvl.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets + chunker.py v1.9.2" />
+<link rel="start" href="index.html" title="{book-title}" />
+<link rel="up" href="" title="" />
+<link rel="prev" href="sys-schema.html" title="Chapter 28 MySQL sys Schema" />
+<link rel="next" href="mysql-enterprise.html" title="Chapter 30 MySQL Enterprise Edition" />
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr>
+<th colspan="3" align="center">Chapter 29 Connectors and APIs</th>
+</tr>
+<tr>
+<td width="20%" align="left"><a accesskey="p" href="sys-schema.html">Prev</a> </td>
+<th width="60%" align="center"></th>
+<td width="20%" align="right"> <a accesskey="n" href="mysql-enterprise.html">Next</a></td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="chapter">
+<div class="titlepage">
+<div>
+<div>
+<h1 class="title"><a name="connectors-apis"></a>Chapter 29 Connectors and APIs</h1>
+
+</div>
+
+</div>
+
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p><dl class="toc"><dt><span class="section"><a href="connectors-apis.html#connector-cpp-info">29.1 MySQL Connector/C++</a></span></dt><dt><span class="section"><a href="connectors-apis.html#connector-j-info">29.2 MySQL Connector/J</a></span></dt><dt><span class="section"><a href="connectors-apis.html#connector-net-info">29.3 MySQL Connector/NET</a></span></dt><dt><span class="section"><a href="connectors-apis.html#connector-odbc-info">29.4 MySQL Connector/ODBC</a></span></dt><dt><span class="section"><a href="connectors-apis.html#connector-python-info">29.5 MySQL Connector/Python</a></span></dt><dt><span class="section"><a href="connectors-apis.html#connector-nodejs-info">29.6 MySQL Connector/Node.js</a></span></dt><dt><span class="section"><a href="connectors-apis.html#c-api-info">29.7 MySQL C API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-php-info">29.8 MySQL PHP API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-perl">29.9 MySQL Perl API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-python">29.10 MySQL Python API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-ruby">29.11 MySQL Ruby APIs</a></span></dt><dd><dl><dt><span class="section"><a href="connectors-apis.html#apis-ruby-mysqlruby">29.11.1 The MySQL/Ruby API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-ruby-rubymysql">29.11.2 The Ruby/MySQL API</a></span></dt></dl></dd><dt><span class="section"><a href="connectors-apis.html#apis-tcl">29.12 MySQL Tcl API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-eiffel">29.13 MySQL Eiffel Wrapper</a></span></dt></dl>
+</div>
+<a class="indexterm" name="idm46071436924128"></a><a class="indexterm" name="idm46071436923056"></a><a class="indexterm" name="idm46071436921984"></a><a class="indexterm" name="idm46071436920912"></a><a class="indexterm" name="idm46071436919840"></a><a class="indexterm" name="idm46071436918768"></a><a class="indexterm" name="idm46071436917696"></a><a class="indexterm" name="idm46071436916624"></a><a class="indexterm" name="idm46071436915552"></a><a class="indexterm" name="idm46071436914480"></a><a class="indexterm" name="idm46071436913408"></a><a class="indexterm" name="idm46071436912336"></a><a class="indexterm" name="idm46071436911264"></a><a class="indexterm" name="idm46071436909776"></a><p>
+    MySQL Connectors provide connectivity to the MySQL server for client
+    programs. APIs provide low-level access to MySQL resources using
+    either the classic MySQL protocol or X Protocol. Both Connectors and the
+    APIs enable you to connect and execute MySQL statements from another
+    language or environment, including ODBC, Java (JDBC), C++, Python,
+    Node.js, PHP, Perl, Ruby, and C.
+</p>
+<h2><a name="idm46071436907488"></a>MySQL Connectors</h2>
+<p>
+    Oracle develops a number of connectors:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/connector-cpp/8.0/en/" target="_top">Connector/C++</a>
+        enables C++ applications to connect to MySQL.
+      </p></li><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/connector-j/8.0/en/" target="_top">Connector/J</a> provides
+        driver support for connecting to MySQL from Java applications
+        using the standard Java Database Connectivity (JDBC) API.
+      </p></li><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/connector-net/en/" target="_top">Connector/NET</a> enables developers
+        to create .NET applications that connect to MySQL. Connector/NET
+        implements a fully functional ADO.NET interface and provides
+        support for use with ADO.NET aware tools. Applications that use
+        Connector/NET can be written in any supported .NET language.
+      </p><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/visual-studio/en/" target="_top">MySQL for Visual Studio</a> works with Connector/NET
+        and Microsoft Visual Studio 2012, 2013, 2015, and 2017. MySQL for Visual Studio
+        provides access to MySQL objects and data from Visual Studio. As
+        a Visual Studio package, it integrates directly into Server
+        Explorer providing the ability to create new connections and
+        work with MySQL database objects.
+      </p></li><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/connector-odbc/en/" target="_top">Connector/ODBC</a> provides
+        driver support for connecting to MySQL using the Open Database
+        Connectivity (ODBC) API. Support is available for ODBC
+        connectivity from Windows, Unix, and macOS platforms.
+      </p></li><li class="listitem"><p>
+        <a class="ulink" href="https://dev.mysql.com/doc/connector-python/en/" target="_top">Connector/Python</a>
+        provides driver support for connecting to MySQL from Python
+        applications using an API that is compliant with the
+        <a class="ulink" href="http://www.python.org/dev/peps/pep-0249/" target="_top">Python DB
+        API version 2.0</a>. No additional Python modules or MySQL
+        client libraries are required.
+      </p></li><li class="listitem"><p>
+
+        <code class="literal">Connector/Node.js</code> provides an asynchronous
+        API for connecting to MySQL from Node.js applications using
+        X Protocol. Connector/Node.js supports managing database
+        sessions and schemas, working with MySQL Document Store
+        collections and using raw SQL statements.
+</p></li></ul>
+</div>
+<h2><a name="idm46071436893504"></a>The MySQL C API</h2>
+<p>
+    For direct access to using MySQL natively within a C application,
+    the <a class="ulink" href="https://dev.mysql.com/doc/c-api/8.0/en/" target="_top">C API</a> provides low-level access to
+    the MySQL client/server protocol through the
+    <code class="literal">libmysqlclient</code> client library. This is the
+    primary method used to connect to an instance of the MySQL server,
+    and is used both by MySQL command-line clients and many of the MySQL
+    Connectors and third-party APIs detailed here.
+  </p><p>
+    <code class="literal">libmysqlclient</code> is included in MySQL distributions
+    distributions.
+  </p><p>
+    See also <a class="ulink" href="https://dev.mysql.com/doc/c-api/8.0/en/c-api-implementations.html" target="_top">MySQL C API Implementations</a>.
+  </p><p>
+    To access MySQL from a C application, or to build an interface to
+    MySQL for a language not supported by the Connectors or APIs in this
+    chapter, the <a class="ulink" href="https://dev.mysql.com/doc/c-api/8.0/en/" target="_top">C API</a> is where to start. A
+    number of programmer's utilities are available to help with the
+    process; see <a class="xref" href="programs.html#programs-development" title="4.7 Program Development Utilities">Section 4.7, “Program Development Utilities”</a>.
+</p>
+<h2><a name="idm46071436886064"></a>Third-Party MySQL APIs</h2>
+<p>
+    The remaining APIs described in this chapter provide an interface to
+    MySQL from specific application languages. These third-party
+    solutions are not developed or supported by Oracle. Basic
+    information on their usage and abilities is provided here for
+    reference purposes only.
+  </p><p>
+    All the third-party language APIs are developed using one of two
+    methods, using <code class="literal">libmysqlclient</code> or by implementing
+    a <span class="firstterm">native driver</span>. The two
+    solutions offer different benefits:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Using <span class="emphasis"><em><code class="literal">libmysqlclient</code></em></span>
+        offers complete compatibility with MySQL because it uses the
+        same libraries as the MySQL client applications. However, the
+        feature set is limited to the implementation and interfaces
+        exposed through <code class="literal">libmysqlclient</code> and the
+        performance may be lower as data is copied between the native
+        language, and the MySQL API components.
+      </p></li><li class="listitem"><p>
+        <span class="emphasis"><em>Native drivers</em></span> are an implementation of the
+        MySQL network protocol entirely within the host language or
+        environment. Native drivers are fast, as there is less copying
+        of data between components, and they can offer advanced
+        functionality not available through the standard MySQL API.
+        Native drivers are also easier for end users to build and deploy
+        because no copy of the MySQL client libraries is needed to build
+        the native driver components.
+</p></li></ul>
+</div>
+<p>
+    <a class="xref" href="connectors-apis.html#connectors-apis-summary" title="Table 29.1 MySQL APIs and Interfaces">Table 29.1, “MySQL APIs and Interfaces”</a> lists many of the
+    libraries and interfaces available for MySQL.
+</p>
+<div class="table">
+<a name="connectors-apis-summary"></a><p class="title"><b>Table 29.1 MySQL APIs and Interfaces</b></p>
+<div class="table-contents">
+<table summary="Summary of MySQL APIs and interfaces showing the environment, API, type, and related notes."><col style="width: 10%"><col style="width: 35%"><col style="width: 15%"><col style="width: 40%"><thead><tr>
+      <th scope="col">Environment</th>
+      <th scope="col">API</th>
+      <th scope="col">Type</th>
+      <th scope="col">Notes</th>
+    </tr></thead><tbody><tr>
+      <th scope="row">Ada</th>
+      <td>GNU Ada MySQL Bindings</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://gnade.sourceforge.net/" target="_top">MySQL Bindings for GNU
+        Ada</a></td>
+    </tr><tr>
+      <th scope="row">C</th>
+      <td>C API</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/c-api/8.0/en/" target="_top">MySQL 8.0 C API Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row">C++</th>
+      <td>Connector/C++</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-cpp/8.0/en/" target="_top">MySQL Connector/C++ 8.0 Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td>MySQL++</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://tangentsoft.net/mysql++/doc/" target="_top">MySQL++
+        website</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td>MySQL wrapped</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://www.alhem.net/project/mysql/" target="_top">MySQL
+        wrapped</a>.</td>
+    </tr><tr>
+      <th scope="row">Cocoa</th>
+      <td>MySQL-Cocoa</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>Compatible with the Objective-C Cocoa environment. See
+        <a class="ulink" href="http://mysql-cocoa.sourceforge.net/" target="_top">http://mysql-cocoa.sourceforge.net/</a></td>
+    </tr><tr>
+      <th scope="row">D</th>
+      <td>MySQL for D</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://www.steinmole.de/d/" target="_top">MySQL for D</a>.</td>
+    </tr><tr>
+      <th scope="row">Eiffel</th>
+      <td>Eiffel MySQL</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="xref" href="connectors-apis.html#apis-eiffel" title="29.13 MySQL Eiffel Wrapper">Section 29.13, “MySQL Eiffel Wrapper”</a>.</td>
+    </tr><tr>
+      <th scope="row">Erlang</th>
+      <td><code class="literal">erlang-mysql-driver</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="http://code.google.com/p/erlang-mysql-driver/" target="_top"><code class="literal">erlang-mysql-driver</code>.</a></td>
+    </tr><tr>
+      <th scope="row">Haskell</th>
+      <td>Haskell MySQL Bindings</td>
+      <td>Native Driver</td>
+      <td>See <a class="ulink" href="http://www.serpentine.com/blog/software/mysql/" target="_top">Brian
+        O'Sullivan's pure Haskell MySQL bindings</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td><code class="literal">hsql-mysql</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/hsql-mysql-1.7" target="_top">MySQL
+        driver for Haskell</a>.</td>
+    </tr><tr>
+      <th scope="row">Java/JDBC</th>
+      <td>Connector/J</td>
+      <td>Native Driver</td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-j/5.1/en/" target="_top">MySQL Connector/J 5.1 Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row">Kaya</th>
+      <td>MyDB</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://kayalang.org/library/latest/MyDB" target="_top">MyDB</a>.</td>
+    </tr><tr>
+      <th scope="row">Lua</th>
+      <td>LuaSQL</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="http://keplerproject.github.io/luasql/doc/us/" target="_top">LuaSQL</a>.</td>
+    </tr><tr>
+      <th scope="row">.NET/Mono</th>
+      <td>Connector/NET</td>
+      <td>Native Driver</td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-net/en/" target="_top">MySQL Connector/NET Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row">Objective Caml</th>
+      <td>OBjective Caml MySQL Bindings</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="http://raevnos.pennmush.org/code/ocaml-mysql/" target="_top">MySQL
+        Bindings for Objective Caml</a>.</td>
+    </tr><tr>
+      <th scope="row">Octave</th>
+      <td>Database bindings for GNU Octave</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="http://octave.sourceforge.net/database/index.html" target="_top">Database
+        bindings for GNU Octave</a>.</td>
+    </tr><tr>
+      <th scope="row">ODBC</th>
+      <td>Connector/ODBC</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-odbc/en/" target="_top">MySQL Connector/ODBC Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row">Perl</th>
+      <td><code class="literal">DBI</code>/<code class="literal">DBD::mysql</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="xref" href="connectors-apis.html#apis-perl" title="29.9 MySQL Perl API">Section 29.9, “MySQL Perl API”</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td><code class="literal">Net::MySQL</code></td>
+      <td>Native Driver</td>
+      <td>See
+        <a class="ulink" href="http://search.cpan.org/dist/Net-MySQL/MySQL.pm" target="_top"><code class="literal">Net::MySQL</code></a>
+        at CPAN</td>
+    </tr><tr>
+      <th scope="row">PHP</th>
+      <td><code class="literal">mysql</code>, <code class="literal">ext/mysql</code> interface
+        (deprecated)</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/apis-php/en/apis-php-mysql.html" target="_top">Original MySQL API</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td><code class="literal">mysqli</code>, <code class="literal">ext/mysqli</code> interface</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/apis-php/en/apis-php-mysqli.html" target="_top">MySQL Improved Extension</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td><code class="literal">PDO_MYSQL</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/apis-php/en/apis-php-pdo-mysql.html" target="_top">MySQL Functions (PDO_MYSQL)</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td>PDO mysqlnd</td>
+      <td>Native Driver</td>
+      <td></td>
+    </tr><tr>
+      <th scope="row">Python</th>
+      <td>Connector/Python</td>
+      <td>Native Driver</td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-python/en/" target="_top">MySQL Connector/Python Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row">Python</th>
+      <td>Connector/Python C Extension</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="ulink" href="https://dev.mysql.com/doc/connector-python/en/" target="_top">MySQL Connector/Python Developer Guide</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td>MySQLdb</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="xref" href="connectors-apis.html#apis-python" title="29.10 MySQL Python API">Section 29.10, “MySQL Python API”</a>.</td>
+    </tr><tr>
+      <th scope="row">Ruby</th>
+      <td>MySQL/Ruby</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>Uses <code class="literal">libmysqlclient</code>. See
+        <a class="xref" href="connectors-apis.html#apis-ruby-mysqlruby" title="29.11.1 The MySQL/Ruby API">Section 29.11.1, “The MySQL/Ruby API”</a>.</td>
+    </tr><tr>
+      <th scope="row"></th>
+      <td>Ruby/MySQL</td>
+      <td>Native Driver</td>
+      <td>See <a class="xref" href="connectors-apis.html#apis-ruby-rubymysql" title="29.11.2 The Ruby/MySQL API">Section 29.11.2, “The Ruby/MySQL API”</a>.</td>
+    </tr><tr>
+      <th scope="row">Scheme</th>
+      <td><code class="literal">Myscsh</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="https://github.com/aehrisch/myscsh" target="_top"><code class="literal">Myscsh</code></a>.</td>
+    </tr><tr>
+      <th scope="row">SPL</th>
+      <td><code class="literal">sql_mysql</code></td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See
+        <a class="ulink" href="http://www.clifford.at/spl/spldoc/sql_mysql.html" target="_top"><code class="literal">sql_mysql</code>
+        for SPL</a>.</td>
+    </tr><tr>
+      <th scope="row">Tcl</th>
+      <td>MySQLtcl</td>
+      <td><code class="literal">libmysqlclient</code></td>
+      <td>See <a class="xref" href="connectors-apis.html#apis-tcl" title="29.12 MySQL Tcl API">Section 29.12, “MySQL Tcl API”</a>.</td>
+</tr></tbody></table>
+</div>
+
+</div>
+<br class="table-break">
+<div class="section">
+
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-cpp-info"></a>29.1 MySQL Connector/C++</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436690832"></a><a class="indexterm" name="idm46071436689792"></a><p>
+    The MySQL Connector/C++ manual is published in standalone form, not
+    as part of the MySQL Reference Manual. For information, see these
+    documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Main manual: <a class="ulink" href="https://dev.mysql.com/doc/connector-cpp/8.0/en/" target="_top">MySQL Connector/C++ 8.0 Developer Guide</a>
+      </p></li><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-cpp/en/" target="_top">MySQL
+        Connector/C++ Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-j-info"></a>29.2 MySQL Connector/J</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436683168"></a><a class="indexterm" name="idm46071436682128"></a><p>
+    The MySQL Connector/J manual is published in standalone form, not as
+    part of the MySQL Reference Manual. For information, see these
+    documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Main manual: <a class="ulink" href="https://dev.mysql.com/doc/connector-j/en/" target="_top">MySQL
+        Connector/J Developer Guide</a>
+      </p></li><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-j/en/" target="_top">MySQL
+        Connector/J Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-net-info"></a>29.3 MySQL Connector/NET</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436675408"></a><p>
+    The MySQL Connector/NET manual is published in standalone form, not as part of
+    the MySQL Reference Manual. For information, see these documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Main manual: <a class="ulink" href="https://dev.mysql.com/doc/connector-net/en/" target="_top">MySQL Connector/NET Developer Guide</a>
+      </p></li><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-net/en/" target="_top">MySQL Connector/NET
+        Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-odbc-info"></a>29.4 MySQL Connector/ODBC</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436668704"></a><p>
+    The MySQL Connector/ODBC manual is published in standalone form, not
+    as part of the MySQL Reference Manual. For information, see these
+    documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Main manual: <a class="ulink" href="https://dev.mysql.com/doc/connector-odbc/en/" target="_top">MySQL Connector/ODBC Developer Guide</a>
+      </p></li><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-odbc/en/" target="_top">MySQL
+        Connector/ODBC Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-python-info"></a>29.5 MySQL Connector/Python</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436662000"></a><a class="indexterm" name="idm46071436660960"></a><p>
+    The MySQL Connector/Python manual is published in standalone form,
+    not as part of the MySQL Reference Manual. For information, see
+    these documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Main manual: <a class="ulink" href="https://dev.mysql.com/doc/connector-python/en/" target="_top">MySQL Connector/Python Developer Guide</a>
+      </p></li><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-python/en/" target="_top">MySQL
+        Connector/Python Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="connector-nodejs-info"></a>29.6 MySQL Connector/Node.js</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436654288"></a><a class="indexterm" name="idm46071436653248"></a><p>
+    The MySQL Connector/Node.js manual is published in standalone form,
+    not as part of the MySQL Reference Manual. For information, see
+    these documents:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Release notes:
+        <a class="ulink" href="https://dev.mysql.com/doc/relnotes/connector-nodejs/en/" target="_top">MySQL
+        Connector/Node.js Release Notes</a>
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="c-api-info"></a>29.7 MySQL C API</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436648064"></a><a class="indexterm" name="idm46071436647024"></a><p>
+    The MySQL C API Developer Guide is published in standalone form, not
+    as part of the MySQL Reference Manual. See <a class="ulink" href="https://dev.mysql.com/doc/c-api/8.0/en/" target="_top">MySQL 8.0 C API Developer Guide</a>.
+</p>
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-php-info"></a>29.8 MySQL PHP API</h2>
+
+</div>
+
+</div>
+
+</div>
+<p>
+    The MySQL PHP API manual is now published in standalone form, not as
+    part of the MySQL Reference Manual. See <a class="ulink" href="https://dev.mysql.com/doc/apis-php/en/" target="_top">MySQL and PHP</a>.
+</p>
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-perl"></a>29.9 MySQL Perl API</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436640304"></a><a class="indexterm" name="idm46071436638848"></a><a class="indexterm" name="idm46071436637776"></a><a class="indexterm" name="idm46071436636704"></a><p>
+    The Perl <code class="literal">DBI</code> module provides a generic interface
+    for database access. You can write a DBI script that works with many
+    different database engines without change. To use DBI with MySQL,
+    install the following:
+</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1"><li class="listitem"><p>
+        The <code class="literal">DBI</code> module.
+      </p></li><li class="listitem"><p>
+        The <code class="literal">DBD::mysql</code> module. This is the DataBase
+        Driver (DBD) module for Perl.
+      </p></li><li class="listitem"><p>
+        Optionally, the DBD module for any other type of database server
+        you want to access.
+</p></li></ol>
+</div>
+<p>
+    Perl DBI is the recommended Perl interface. It replaces an older
+    interface called <code class="literal">mysqlperl</code>, which should be
+    considered obsolete.
+  </p><p>
+    These sections contain information about using Perl with MySQL and
+    writing MySQL applications in Perl:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        For installation instructions for Perl DBI support, see
+        <a class="xref" href="installing.html#perl-support" title="2.13 Perl Installation Notes">Section 2.13, “Perl Installation Notes”</a>.
+      </p></li><li class="listitem"><p>
+        For an example of reading options from option files, see
+        <a class="xref" href="server-administration.html#multiple-server-clients" title="5.8.4 Using Client Programs in a Multiple-Server Environment">Section 5.8.4, “Using Client Programs in a Multiple-Server Environment”</a>.
+      </p></li><li class="listitem"><p>
+        For secure coding tips, see
+        <a class="xref" href="security.html#security-guidelines" title="6.1.1 Security Guidelines">Section 6.1.1, “Security Guidelines”</a>.
+      </p></li><li class="listitem"><p>
+        For debugging tips, see <a class="xref" href="server-administration.html#using-gdb-on-mysqld" title="5.9.1.4 Debugging mysqld under gdb">Section 5.9.1.4, “Debugging mysqld under gdb”</a>.
+      </p></li><li class="listitem"><p>
+        For some Perl-specific environment variables, see
+        <a class="xref" href="programs.html#environment-variables" title="4.9 Environment Variables">Section 4.9, “Environment Variables”</a>.
+      </p></li><li class="listitem"><p>
+        For considerations for running on macOS, see
+        <a class="xref" href="installing.html#macos-installation" title="2.4 Installing MySQL on macOS">Section 2.4, “Installing MySQL on macOS”</a>.
+      </p></li><li class="listitem"><p>
+        For ways to quote string literals, see
+        <a class="xref" href="language-structure.html#string-literals" title="9.1.1 String Literals">Section 9.1.1, “String Literals”</a>.
+</p></li></ul>
+</div>
+<p>
+    DBI information is available at the command line, online, or in
+    printed form:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        Once you have the <code class="literal">DBI</code> and
+        <code class="literal">DBD::mysql</code> modules installed, you can get
+        information about them at the command line with the
+        <code class="literal">perldoc</code> command:
+      </p><pre data-lang="terminal" class="programlisting">shell&gt; <strong class="userinput"><code>perldoc DBI</code></strong>
+shell&gt; <strong class="userinput"><code>perldoc DBI::FAQ</code></strong>
+shell&gt; <strong class="userinput"><code>perldoc DBD::mysql</code></strong>
+</pre><p>
+        You can also use <code class="literal">pod2man</code>,
+        <code class="literal">pod2html</code>, and so on to translate this
+        information into other formats.
+      </p></li><li class="listitem"><p>
+        For online information about Perl DBI, visit the DBI website,
+        <a class="ulink" href="http://dbi.perl.org/" target="_top">http://dbi.perl.org/</a>. That site hosts a general
+        DBI mailing list.
+      </p></li><li class="listitem"><p>
+        For printed information, the official DBI book is
+        <em class="citetitle">Programming the Perl DBI</em> (Alligator
+        Descartes and Tim Bunce, O'Reilly &amp; Associates, 2000).
+        Information about the book is available at the DBI website,
+        <a class="ulink" href="http://dbi.perl.org/" target="_top">http://dbi.perl.org/</a>.
+</p></li></ul>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-python"></a>29.10 MySQL Python API</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436601664"></a><p>
+    <code class="literal">MySQLdb</code> is a third-party driver that provides
+    MySQL support for Python, compliant with the Python DB API version
+    2.0. It can be found at
+    <a class="ulink" href="http://sourceforge.net/projects/mysql-python/" target="_top">http://sourceforge.net/projects/mysql-python/</a>.
+  </p><p>
+    The new MySQL Connector/Python component provides an interface to
+    the same Python API, and is built into the MySQL Server and
+    supported by Oracle. See <a class="ulink" href="https://dev.mysql.com/doc/connector-python/en/" target="_top">MySQL Connector/Python Developer Guide</a> for
+    details on the Connector, as well as coding guidelines for Python
+    applications and sample Python code.
+</p>
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-ruby"></a>29.11 MySQL Ruby APIs</h2>
+
+</div>
+
+</div>
+
+</div>
+<div class="toc">
+<dl class="toc"><dt><span class="section"><a href="connectors-apis.html#apis-ruby-mysqlruby">29.11.1 The MySQL/Ruby API</a></span></dt><dt><span class="section"><a href="connectors-apis.html#apis-ruby-rubymysql">29.11.2 The Ruby/MySQL API</a></span></dt></dl>
+</div>
+<a class="indexterm" name="idm46071436595424"></a><p>
+    Two APIs are available for Ruby programmers developing MySQL
+    applications:
+</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+        The MySQL/Ruby API is based on the
+        <code class="literal">libmysqlclient</code> API library. For information
+        on installing and using the MySQL/Ruby API, see
+        <a class="xref" href="connectors-apis.html#apis-ruby-mysqlruby" title="29.11.1 The MySQL/Ruby API">Section 29.11.1, “The MySQL/Ruby API”</a>.
+      </p></li><li class="listitem"><p>
+        The Ruby/MySQL API is written to use the native MySQL network
+        protocol (a native driver). For information on installing and
+        using the Ruby/MySQL API, see
+        <a class="xref" href="connectors-apis.html#apis-ruby-rubymysql" title="29.11.2 The Ruby/MySQL API">Section 29.11.2, “The Ruby/MySQL API”</a>.
+</p></li></ul>
+</div>
+<p>
+    For background and syntax information about the Ruby language, see
+    <a class="ulink" href="http://www.ruby-lang.org" target="_top">Ruby Programming
+    Language</a>.
+</p>
+<div class="section">
+
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="apis-ruby-mysqlruby"></a>29.11.1 The MySQL/Ruby API</h3>
+</div>
+</div>
+</div>
+<p>
+      The MySQL/Ruby module provides access to MySQL databases using
+      Ruby through <code class="literal">libmysqlclient</code>.
+    </p><p>
+      For information on installing the module, and the functions
+      exposed, see
+      <a class="ulink" href="http://tmtm.org/en/mysql/ruby/" target="_top">MySQL/Ruby</a>.
+</p>
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="apis-ruby-rubymysql"></a>29.11.2 The Ruby/MySQL API</h3>
+
+</div>
+
+</div>
+
+</div>
+<p>
+      The Ruby/MySQL module provides access to MySQL databases using
+      Ruby through a native driver interface using the MySQL network
+      protocol.
+    </p><p>
+      For information on installing the module, and the functions
+      exposed, see
+      <a class="ulink" href="http://tmtm.org/en/ruby/mysql/README_en.html" target="_top">Ruby/MySQL</a>.
+</p>
+</div>
+
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-tcl"></a>29.12 MySQL Tcl API</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436580192"></a><p>
+    <code class="literal">MySQLtcl</code> is a simple API for accessing a MySQL
+    database server from the
+    <a class="ulink" href="http://en.wikipedia.org/wiki/Tcl" target="_top">Tcl programming
+    language</a>. It can be found at
+    <a class="ulink" href="http://www.xdobry.de/mysqltcl/" target="_top">http://www.xdobry.de/mysqltcl/</a>.
+</p>
+</div>
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="apis-eiffel"></a>29.13 MySQL Eiffel Wrapper</h2>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm46071436575152"></a><a class="indexterm" name="idm46071436574112"></a><p>
+    Eiffel MySQL is an interface to the MySQL database server using the
+    <a class="ulink" href="http://en.wikipedia.org/wiki/Eiffel_(programming_language)" target="_top">Eiffel
+    programming language</a>, written by Michael Ravits. It can be
+    found at
+    <a class="ulink" href="http://efsa.sourceforge.net/archive/ravits/mysql.htm" target="_top">http://efsa.sourceforge.net/archive/ravits/mysql.htm</a>.
+</p>
+</div>
+
+</div>
+<div class="copyright-footer">
+
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left"><a accesskey="p" href="sys-schema.html">Prev</a></td>
+<td width="20%" align="center"><a accesskey="u" href="">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="mysql-enterprise.html">Next</a></td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 28 MySQL sys Schema</td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top">Chapter 30 MySQL Enterprise Edition</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
