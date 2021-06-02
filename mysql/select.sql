@@ -6,6 +6,16 @@ SELECT cat_id FROM ecs_goods_cat WHERE true;
 -- 将会选择空
 SELECT cat_id FROM ecs_goods_cat WHERE false;
 
+select 1 where true;
+-- +---+
+-- | 1 |
+-- +---+
+-- | 1 |
+-- +---+
+-- 1 row in set (0.0003 sec)
+select 1 where false;
+-- Empty set (0.0003 sec)
+
 
 
 
