@@ -10,3 +10,10 @@
 
    Failed to launch 'zzz:a@com' because the scheme does not have a registered handler.
 
+-------
+
+我们将注册表中 HKEY_CLASSES_ROOT\mailto 导出，再修改成
+zzz 的协议，最后再导入回注册表，那么网页就会支持 zzz 协议
+
+
+
