@@ -58,3 +58,14 @@ Unicode 是字符集，对应了三种编码：
 UTF-8, UTF-16, UTF-32
 
 
+ASCII
+=====
+
+13 "\r" 让光标回到行首
+
+        在 cmd 中执行 PHP 代码
+            <?php echo "HELLO\ra"; ?>
+        最终会显示
+            aELLO
+
+
