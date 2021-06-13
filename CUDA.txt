@@ -1,0 +1,20 @@
+
+CUDA
+
+Compute Unified Device Architecture
+
+Nvidia 推出的通用并行计算架构，使 GPU
+能够解决复杂的计算问题。
+
+包含 CUDA 指令集架构以及 GPU 内部的并
+行计算引擎。
+
+显卡非常适合并行计算，而且数值计算的
+速度远远优于 CPU。
+
+
+
+
+
+
+
