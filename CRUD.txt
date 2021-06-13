@@ -1,0 +1,8 @@
+
+CRUD
+
+1. Create    增加
+2. Retrieve  检索
+3. Update    更新
+4. Delete    删除
+
