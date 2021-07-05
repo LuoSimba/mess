@@ -29,6 +29,14 @@ fdisk -s /dev/sda1
 # block size 有很多不同的含义，这里固定是 1024 字节
 
 
+# 关于 block size
+info coreutils 
+# Common options -> Block size
+# block size 是 coreutils 里的一个概念，很多的命令
+# 在显示的时候，都是以 block size 为单位的。
+
+
+
 # 在 VMware 虚拟机环境中, fdisk 获取到 U 盘的扇区
 # 信息是错误的, 往往比 512 大很多。因此列出的分区
 # 起始位置, 和结束位置都是很奇怪的数值。（可能和
