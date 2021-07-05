@@ -22,6 +22,12 @@ fdisk /dev/sda
 dd if=/dev/zero of=floppy.img bs=512 count=2880
 fdisk floppy.img
 
+# 查看硬盘和分区各占用多少块 (block size)
+fdisk -s /dev/sda
+fdisk -s /dev/sda1
+# 这里的 block size = 1024 bytes
+# block size 有很多不同的含义，这里固定是 1024 字节
+
 
 # 在 VMware 虚拟机环境中, fdisk 获取到 U 盘的扇区
 # 信息是错误的, 往往比 512 大很多。因此列出的分区
