@@ -1,0 +1,216 @@
+
+Request for Comments: 1319                              RSA Laboratories
+Updates: RFC 1115                                             April 1992
+
+
+                     The MD2 Message-Digest Algorithm
+
+Status of this Memo
+
+   This memo provides information for the Internet community.  It does
+   not specify an Internet standard.  Distribution of this memo is
+   unlimited.
+
+Acknowlegements
+
+   The description of MD2 is based on material prepared by John Linn and
+   Ron Rivest.  Their permission to incorporate that material is greatly
+   appreciated.
+
+目录
+
+   1. Executive Summary                                                1
+   2. 术语和记号
+   3. MD2 算法描述
+   4. 总结
+   References                                                          5
+   Security Considerations                                            17
+
+1. Executive Summary
+
+   本文描述的是 MD2 消息摘要算法。该算法接受一个任意长度的消息输入，
+   然后产生一个 128 位的输出，我们称之为输入消息的“指纹”或者“摘要”。
+
+   可以认为现实中，两个不同的消息产生出一样的摘要是不可能发生的。
+   或者，给定一个摘要，反推出满足该摘要的原消息，也是不可能的。
+
+   MD2 算法可被用作数字签名，这样一来大文件就可以不必采用像 RSA 加密的
+   方式传输以保证其安全。
+
+   License to use MD2 is granted for non-commerical Internet
+   Privacy-Enhanced Mail [1-3].
+
+   本文是对 RFC 1115 (August 1989) 的补充，主要的区别是本文包含了
+   对算法的文本描述，且代码更具可移植性。
+
+   For OSI-based applications, MD2's object identifier is
+
+   md2 OBJECT IDENTIFIER ::=
+   iso(1) member-body(2) US(840) rsadsi(113549) digestAlgorithm(2) 2}
+
+   In the X.509 type AlgorithmIdentifier [4], the parameters for MD2
+   should have type NULL.
+
+2. 术语和记号
+
+   本文中所提到的“字节”，是指一个含有 8 bit 的单元。
+
+   用 x_i 来表示 x 减去 i. (x sub i ??)
+   如果下标是一个表达式，我们用大括号把它括起来，类似 x_{i+1} 这样。
+
+   用 ^ 来表示乘方运算，因此 x^i 表示的是 x 的 i 次幂。
+
+   用 X xor Y 表示对 X 和 Y 执行位运算 XOR .
+
+
+3. MD2 算法描述
+
+   假设我们已经有了一个 b 字节的消息作为输入，我们期望得到它的消息摘要。
+   在这里 b 是一个任意的非负整数：b 可以是 0, 也可以是一个很大很大的数。
+   我们想象一下，把它写下来，应该就是下面这个样子：
+
+                   m_0 m_1 ... m_{b-1}
+
+   接下来分为五个步骤来说明如何计算它的消息摘要。
+
+3.1 第一步. 追加补充字节
+
+   为了让它的长度（字节数）刚好是 16 的倍数，我们在消息的末尾追加一些
+   字节。这一步总是会被执行的，就算消息本身已经是 16 的倍数，我们也会
+   额外追加一组完整的 16 字节。
+
+   过程如下：
+
+   "i" 字节值为 "i" 的一组，会被追加到消息的末尾，以满足追加后的消息
+   是 16 的倍数这个条件。至少追加 1 个字节，至多追加 16 个字节。
+
+   至此，新的消息必然是 16 的倍数。我们用 M[0 ... N-1] 来表示（N是新
+   消息的长度，同时也是 16 的倍数）。
+
+3.2 第二步 追加校验和
+
+   我们在上一步的基础上，再追加一组 16 字节的校验和。
+
+   This step uses a 256-byte "random" permutation constructed from the
+   digits of pi.
+
+   我们用 S[i] 来表示该表中的第 i 项元素。该表已经在附录中给出。
+
+   执行以下操作：
+
+      /* Clear checksum. */
+      Set C = [
+        0 0 0 0
+        0 0 0 0
+        0 0 0 0
+        0 0 0 0 ]
+
+      Set L = 0
+
+      /* 分成了几组 */
+      Set group_count = N / 16
+
+      /* Process each 16-word block. */
+      Call checksum_block(i) where i in range ( 0 ... group_count-1 )
+
+
+      /* Checksum block i. */
+      Define checksum_block(i):
+
+         /* fetch block i */
+         Set B = M[ i*16+0 ... i*16+15 ]
+
+         For j = 0 to 15 do
+            Set c = B[j]
+            Set C[j] = S[c xor L]
+            Set L = C[j]
+         end /* of loop on j */
+
+   将 16 字节的校验和 C[0 ... 15] 添加到消息的尾部.
+
+
+3.3 第三步 准备一个缓冲区用于计算消息摘要
+
+   我们用一个 48 字节的缓冲区 X 来计算消息摘要。缓冲区将被初始化，
+   用 0 填充。
+
+
+3.4 第四步 Process Message in 16-Byte Blocks
+
+   This step uses the same 256-byte permutation S as step 2 does.
+
+   Do the following:
+
+      /* Process each 16-word block. */
+      For i = 0 to N'/16-1 do
+
+         /* Copy block i into X. */
+         For j = 0 to 15 do
+            Set X[16+j] to M[i*16+j].
+            Set X[32+j] to (X[16+j] xor X[j]).
+          end /* of loop on j */
+
+         Set t to 0.
+
+         /* Do 18 rounds. */
+         For j = 0 to 17 do
+
+            /* Round j. */
+            For k = 0 to 47 do
+               Set t and X[k] to (X[k] xor S[t]).
+            end /* of loop on k */
+
+            Set t to (t+j) modulo 256.
+         end /* of loop on j */
+
+      end /* of loop on i */
+
+3.5 第五步 输出
+
+   输出的消息摘要是 X[0 ... 15]. 即从 X[0] 到 X[15] 这 16 个字节
+   就是我们要的结果。
+
+   对 MD2 算法的描述到这里就结束了。附录里给出了 C 语言的实现。
+
+4. 总结
+
+   MD2 消息摘要算法是非常容易实现的。
+
+   It is conjectured that the difficulty of coming up with two messages
+
+   having the same message digest is on the order of 2^64 operations,
+
+
+   and that the difficulty of coming up with any message having a given
+
+   message digest is on the order of 2^128 operations. The MD2 algorithm
+
+   has been carefully scrutinized for weaknesses. It is, however, a
+
+   relatively new algorithm and further security analysis is of course
+
+   justified, as is the case with any new proposal of this sort.
+
+References
+
+   [1] Linn, J., "Privacy Enhancement for Internet Electronic Mail: Part
+       I -- Message Encipherment and Authentication Procedures", RFC
+       1113, DEC,  IAB Privacy Task Force, August 1989.
+
+   [2] Kent, S., and J. Linn, "Privacy Enhancement for Internet
+       Electronic Mail: Part II -- Certificate-Based Key Management",
+       RFC 1114, BBNCC, DEC, IAB Privacy Task Force, August 1989.
+
+   [3] Linn, J., "Privacy Enhancement for Internet Electronic Mail: Part
+       III -- Algorithms, Modes, and Identifiers", RFC 1115 DEC, IAB
+       Privacy Task Force, August 1989.
+
+   [4] CCITT Recommendation X.509 (1988), "The Directory -
+       Authentication Framework".
+
+Security Considerations
+
+   The level of security discussed in this memo is considered to be
+   sufficient for implementing very high security hybrid digital
+   signature schemes based on MD2 and a public-key cryptosystem.
+
