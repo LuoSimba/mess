@@ -42,8 +42,3 @@ info coreutils
 # 起始位置, 和结束位置都是很奇怪的数值。（可能和
 # 虚拟机里的系统有关）
 
-# see also: df - report file system disk space usage
-
-# -h print sizes in human readable format.
-df -h
-
