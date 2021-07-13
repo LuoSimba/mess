@@ -29,4 +29,14 @@ $Bitmap中有标记为已使用的未用簇。
     chkdsk /f /x c:
 
 
+激活
+====
+
+    activation.bat
+
+
+整个硬盘迁移
+============
+
+    /uefi/win10.migrate.sh
 
