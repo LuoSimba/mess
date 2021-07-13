@@ -1,0 +1,19 @@
+
+
+bit = { 0, 1 }
+
+Byte = 8 bit
+
+-------------
+Kilo Byte 
+Mega Byte
+Giga Byte  (GIGABYTE Technology 技嘉)
+Tera Byte
+Peta Byte
+-------------
+Exa   Byte
+Zeta  Byte
+Yotta Byte
+Nona  Byte
+Gogga Byte
+
