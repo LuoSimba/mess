@@ -103,7 +103,7 @@ RFC 1319              MD2 Message-Digest Algorithm            April 1992
 
    Padding is performed as follows: "i" bytes of value "i" are appended
    to the message so that the length in bytes of the padded message
-   becomes congruent to 0, modulo 16. At least one byte and at most 16
+   becomes congruent to 0, modulo 16. At least one byte and at most         /* EID 554 */
    16 bytes are appended.
 
    At this point the resulting message (after padding with bytes) has a
@@ -136,19 +136,21 @@ RFC 1319              MD2 Message-Digest Algorithm            April 1992
 
       Set L to 0.
 
-      /* Process each 16-word block. */
+      /* Process each 16-byte block. */                                 /* EID 3575 */
       For i = 0 to N/16-1 do
 
          /* Checksum block i. */
          For j = 0 to 15 do
             Set c to M[i*16+j].
-            Set C[j] to S[c xor L].
+            Set C[j] to C[j] xor S[c xor L].                            /* EID 555 */
             Set L to C[j].
           end /* of loop on j */
        end /* of loop on i */
 
-   The 16-byte checksum C[0 ... 15] is appended to the message. Let M[0
-   with checksum), where N' = N + 16.
+   The 16-byte checksum C[0 ... 15] is appended to the (padded)         /* EID 555 */
+   message.
+   Let M[0...N'-1] be the message with padding and checksum appended,
+   where N' = N + 16.
 
 3.3 Step 3. Initialize MD Buffer
 
@@ -178,7 +180,7 @@ RFC 1319              MD2 Message-Digest Algorithm            April 1992
 
    Do the following:
 
-      /* Process each 16-word block. */
+      /* Process each 16-byte block. */                              /* EID 3576 */
       For i = 0 to N'/16-1 do
 
          /* Copy block i into X. */
