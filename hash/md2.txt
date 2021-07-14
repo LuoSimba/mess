@@ -82,7 +82,7 @@
       /* 分成了几组 */
       Set group_count = N / 16
 
-      /* Process each 16-word block. */
+      /* Process each 16-byte block. */
       Call checksum_block(i) where i in range ( 0 ... group_count-1 )
 
 
@@ -94,7 +94,7 @@
 
          For j = 0 to 15 do
             Set c = B[j]
-            Set C[j] = S[c xor L]
+            Set C[j] = C[j] xor S[c xor L]
             Set L = C[j]
          end /* of loop on j */
 
@@ -123,7 +123,7 @@
 
    执行以下操作：
 
-      /* Process each 16-word block. */
+      /* Process each 16-byte block. */
       For i = 0 to N'/16-1 do
 
          /* Copy block i into X. */
