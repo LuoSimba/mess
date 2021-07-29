@@ -3,14 +3,14 @@
 the first SCSI disk
 -------------------
 
-/dev/sda: block special
+  /dev/sda: block special
 
 
 
-floppy disk
------------
+软盘 floppy disk
+----------------
 
-/dev/fd0: block special
+  /dev/fd0: block special
 
 
 
@@ -18,8 +18,19 @@ floppy disk
 device that always output NUL (0x00)
 ------------------------------------
 
-/dev/zero: character special
+  /dev/zero: character special
 
-always used with command dd.
+  always used with command dd.
+
+
+NIC
+---
+
+  网卡不在 /dev 目录中。
+
+  /dev 中放的都是字符设备、块设备，网络设备并不
+  属于此二类，无法实现它们的接口。
+
+  网卡对应 socket
 
 
