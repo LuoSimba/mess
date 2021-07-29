@@ -13,3 +13,6 @@ git config --global user.email "a@com"
 # 提交时如何编辑 msg
 git config --global core.editor "/path/to/gvim.exe"
 
+# 正常显示中文
+git config --global core.quotepath false
+
