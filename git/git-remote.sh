@@ -14,3 +14,7 @@ git remote rename origin abc
 # 删除一个远程仓库
 git remote rm origin
 
+
+# 跟踪一个远程分支
+git branch --set-upstream-to=origin/master
+
