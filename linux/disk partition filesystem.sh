@@ -21,3 +21,10 @@ resize2fs /dev/sdb1 20G
 # 分区的备份，还原，迁移
 dd 
 
+
+
+
+# 文件系统
+# 
+# centos8.x  xfs
+# opensuse   btrfs
