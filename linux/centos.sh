@@ -14,3 +14,7 @@ systemctl set-default multi-user.target
 # 从终端切换到图形界面
 startx
 
+
+# 安装软件
+yum install git
+
