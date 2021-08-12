@@ -14,6 +14,18 @@ the first SCSI disk
 
 
 
+TTY Teletype Writer
+-------------------
+
+  /dev/tty0   # alias to current tty
+  /dev/tty1
+  /dev/pts/*
+
+  '''
+  echo "test tty0" > /dev/tty0
+  '''
+
+
 
 device that always output NUL (0x00)
 ------------------------------------
