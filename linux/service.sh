@@ -1,5 +1,8 @@
 
 
+# Show all services
+systemctl list-units --type=service
+
 
 # HTTP
 service nginx start

@@ -14,6 +14,15 @@ parted
 df -h
 
 
+# Disk Usage
+# 估计文件夹的大小
+du
+
+# -h 结果显示 100M, 32K 等便于阅读的值
+# -s 仅显示一项统计结果
+du -h -s .
+
+
 # 调整一个文件系统的大小 (不能在挂载中)
 resize2fs /dev/sdb1 20G
 
