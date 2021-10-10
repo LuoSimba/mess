@@ -43,20 +43,9 @@ $ nm b.o
 00000000 T main
 
 
-
--------------------------------------
-readelf - Displays information about ELF files.
-
-$ readelf --syms a.out
-
-$ readelf --syms b.o
-
-
-
-
-
 -------------------------------------
 ld - The GNU linker
+readelf - Displays information about ELF files.
 
 
 
