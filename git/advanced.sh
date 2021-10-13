@@ -28,4 +28,8 @@ pull = fetch + rebase
 
 
 
+# 有时候，我们只想查看当前目录有哪些改动
+git status .
+git status <directory-path>
+
 
