@@ -54,6 +54,30 @@
 
     git commit -m "some message"
 </pre>
+
+<h1>检出</h1>
+
+<p>检出 是将文件从仓库拿到工作区</p>
+
+<pre>
+    # 查看命令帮助
+    git checkout -h
+
+    # 分支检出
+    git checkout master
+
+    # 标签检出
+    git checkout v1.0
+
+    # 某个提交历史检出（commit id）
+    git checkout d6a8b7069057bce6251757e62c206f94f36db9ff
+
+    # 只检出某一个文件
+    git checkout master a.txt  # 检出其他分支上的版本
+    git checkout v1.0   a.txt  # 检出某个标签下的版本
+    git checkout d6a8b7 a.txt  # 检出历史上的某一个版本
+</pre>
+
 </body>
 </html>
 
