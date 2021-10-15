@@ -78,6 +78,51 @@
     git checkout d6a8b7 a.txt  # 检出历史上的某一个版本
 </pre>
 
+<h1>日志</h1>
+
+<p>日志 记录了提交的历史记录</p>
+
+<pre>
+    # 按时间的先后顺序列出所有的提交
+    git log
+
+    # 只显示最近的 5 次提交
+    git log -5
+
+    # 查看与前一版本的变化
+    git log --patch
+
+    # 查看简略统计信息（改动了哪些文件）
+    git log --stat
+
+    # 一行显示一次提交
+    # --pretty=short
+    # --pretty=full
+    # --pretty=fuller
+    git log --pretty=oneline
+
+    # 相当于: --pretty=oneline --abbrev-commit
+    git log --oneline
+
+    # 树状图形展示
+    git log --graph 
+    
+    # 组合使用
+    git log --graph --pretty=oneline
+</pre>
+
+<h2>日志的其他用法</h2>
+
+<pre>
+    # 搜索改动中包含的字符串
+    git log -S hello
+
+    # 由于日志非常多，如果能指定目录或文件将能过滤掉很多无关的信息
+    git log -- .     # 当前目录
+    git log -- src   # 指定目录
+    git log -- a.txt # 指定文件
+</pre>
+
 </body>
 </html>
 
