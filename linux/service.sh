@@ -12,6 +12,7 @@ service nginx status
 service firewalld status
 service firewalld start
 
+systemctl start  firewalld
 systemctl status firewalld
 systemctl stop   firewalld
 
@@ -22,10 +23,18 @@ firewall-cmd --permanent --add-port=80/tcp
 firewall-cmd --permanent --remove-port=80/tcp
 firewall-cmd --reload
 
-# 防火墙过滤 IP 地址、端口
+# firewall filter { ip address, port }
 
 
-# 开机启动
+# boot
 systemctl enable nginx
 systemctl disable firewalld
+
+
+# power manage
+systemctl poweroff
+systemctl suspend # sleep
+
+
+
 
