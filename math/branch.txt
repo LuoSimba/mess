@@ -74,7 +74,7 @@ The Branches of Mathematics
     8.3 级数论
     8.4 数学分析其他学科
 9. 非标准分析 Non-standard analysis
-10. 函数论
+10. 函数论 theory of functions
     10.1 实变函数论
     10.2 单复变函数论
     10.3 多复变函数论
