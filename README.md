@@ -27,7 +27,7 @@
 * asm    - 汇编语言
 * c      - C 语言语法
 * git    - git 命令
-* linux  - linux 命令
+* linux  - linux 命令（已移除。单独建立仓库）
 * math   - 数学相关
 * mysql  - 数据库相关
 * uefi   - bios 和 uefi 知识
